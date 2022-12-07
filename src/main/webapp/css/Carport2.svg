@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="800" height="650" fill="white">
+
+    <rect x="0" y="0" width="780" height="600" style="fill:rgb(255,255,255);stroke-width:0;stroke:rgb(0,0,0)"/>
+
+    <rect x="0" y="35" width="780" height="4.5" style="fill:rgb(255,255,255);stroke-width:1;stroke:rgb(0,0,0)"/>
+    <rect x="0" y="565" width="780" height="4.5" style="fill:rgb(255,255,255);stroke-width:1;stroke:rgb(0,0,0)"/>
+
+    <rect x="0" y="0" width="4.5" height="600" style="fill:rgb(255,255,255);stroke-width:1;stroke:rgb(0,0,0)"/>
+    <rect x="780" y="0" width="4.5" height="600" style="fill:rgb(255,255,255);stroke-width:1;stroke:rgb(0,0,0)"/>
+
+    <rect x="80" y="32.5" width="10" height="10" style="fill:rgb(255,255,255);stroke-width:1;stroke:rgb(0,0,0)"/>
+    <rect x="420" y="32.5" width="10" height="10" style="fill:rgb(255,255,255);stroke-width:1;stroke:rgb(0,0,0)"/>
+    <rect x="750" y="32.5" width="10" height="10" style="fill:rgb(255,255,255);stroke-width:1;stroke:rgb(0,0,0)"/>
+    <rect x="80" y="562.5" width="10" height="10" style="fill:rgb(255,255,255);stroke-width:1;stroke:rgb(0,0,0)"/>
+    <rect x="420" y="562.5" width="10" height="10" style="fill:rgb(255,255,255);stroke-width:1;stroke:rgb(0,0,0)"/>
+    <rect x="750" y="562.5" width="10" height="10" style="fill:rgb(255,255,255);stroke-width:1;stroke:rgb(0,0,0)"/>
+
+    <g fill="none" stroke="black" stroke-width="2">
+        <path stroke-dasharray="5,5" d="M55 40 L540 565"/>
+        <path stroke-dasharray="5,5" d="M540 40 L55 565"/>
+    </g>
+</svg>
