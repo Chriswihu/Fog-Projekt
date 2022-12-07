@@ -200,4 +200,6 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-# End of https://www.toptal.com/developers/gitignore/api/intellij,java,osx,windows,maven
+# End of https://www.toptal.com/developers/gitignore/api/intellij,java,osx,windows,maven!/.idea/dataSources.xml
+!/.idea/dataSources.xml
+!/.idea/dataSources.xml

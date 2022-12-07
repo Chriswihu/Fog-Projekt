@@ -11,5 +11,52 @@ th, td {
     padding:15px;
 }
 
+.topnav {
+    overflow: hidden;
+    background-color: #fcfcfc;
+}
+
+.topnav a {
+    float: left;
+    color: #000000;
+
+}
+.topnav a.nav-item {
+    justify-content: center;
+    text-align: center;
+    padding: 25.5px 20px;
+    text-decoration: none;
+    font: inherit;
+    font-size: 13px;
+}
+
+.topnav a:hover {
+    background-color: #003d76;
+    color: white;
+}
+
+.topnav a.active {
+    overflow: hidden;
+    /*background-color: #04AA6D;*/
+    color: white;
+}
+
+.topnav-right {
+    float: right;
+}
+
+.dropdown-menu {
+
+
+}
+
+.topnav.topnav-right.dropdown:hover > .dropdown-menu {
+    display: block;
+}
+.topnav.topnav-right.dropdown > .dropdown-toggle:active {
+    /*Without this, clicking will make it sticky*/
+    pointer-events: none;
+}
+
 
 
