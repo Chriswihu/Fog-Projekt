@@ -25,7 +25,7 @@ public class SVGServlet extends HttpServlet
 
         String navn = "john";
         String alder = "42";
-        String  test = String.format("Hej med %s. Du er %d", navn, alder);
+        String test = String.format("Hej med %s. Du er %d", navn, alder);
 
 
         request.setAttribute("svg", svg);

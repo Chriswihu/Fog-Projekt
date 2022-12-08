@@ -1,4 +1,4 @@
 package dat.backend.model.entities;
 
-public class BillOmMaterials {
+public class BillOfMaterials {
 }

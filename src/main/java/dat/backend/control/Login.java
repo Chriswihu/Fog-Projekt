@@ -1,6 +1,7 @@
 package dat.backend.control;
 
 import dat.backend.model.config.ApplicationStart;
+import dat.backend.model.entities.Cart;
 import dat.backend.model.entities.User;
 import dat.backend.model.exceptions.DatabaseException;
 import dat.backend.model.persistence.UserFacade;
@@ -33,18 +34,25 @@ public class Login extends HttpServlet
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException
     {
+        response.setCharacterEncoding("UTF-8");
+        request.setCharacterEncoding("UTF-8");
+
         response.setContentType("text/html");
         HttpSession session = request.getSession();
         session.setAttribute("user", null); // invalidating user object in session scope
         String username = request.getParameter("username");
         String password = request.getParameter("password");
 
+
         try
         {
-            User user = UserFacade.login(username, password, connectionPool);
             session = request.getSession();
+            User user = UserFacade.login(username, password, connectionPool);
             session.setAttribute("user", user); // adding user object to session scope
-            request.getRequestDispatcher("WEB-INF/welcome.jsp").forward(request, response);
+            Cart cart = new Cart();
+            session.setAttribute("cart", cart);
+
+            request.getRequestDispatcher("ordre.jsp").forward(request, response);
         }
         catch (DatabaseException e)
         {
