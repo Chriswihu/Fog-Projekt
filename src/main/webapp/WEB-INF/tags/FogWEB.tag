@@ -27,7 +27,8 @@
 <div class="topnav">
     <a class="active" href="${pageContext.request.contextPath}/index.jsp">
         <img src="${pageContext.request.contextPath}/images/Fog-Logo.png" height="70px" class="img-fill"></a>
-    <a class="nav-item topnav" href="${pageContext.request.contextPath}/index.jsp" aria-expanded="true">Bolig & Design</a>
+    <a class="nav-item topnav" href="${pageContext.request.contextPath}/index.jsp" aria-expanded="true">Bolig &
+        Design</a>
     <a class="nav-item topnav" href="${pageContext.request.contextPath}/">Byggematerialer</a>
     <a class="nav-item topnav" href="${pageContext.request.contextPath}/">El & Belysning</a>
     <a class="nav-item topnav" href="${pageContext.request.contextPath}/">Have & Fritid</a>
@@ -83,7 +84,6 @@
 
 </div>
 
-</div>
 
 <!-- Bootstrap Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"

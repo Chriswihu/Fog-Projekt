@@ -6,38 +6,27 @@
 
 <t:FogWEB>
     <jsp:attribute name="header">
-             Login
+             Create a new user account
     </jsp:attribute>
 
     <jsp:attribute name="footer">
-            Login
+            CreateUser
     </jsp:attribute>
 
+
+
     <jsp:body>
-
-        <h3>You can log in here</h3>
-
-        <form action="login" method="post">
-            <label for="username">Username: </label>
-            <input type="text" id="username" name="username"/>
-            <label for="password">Password: </label>
-            <input type="password" id="password" name="password"/>
-            <input type="submit"  value="Log in"/>
-        </form>
-<br/>
         <h3> Ny bruger? Opret dig her</h3>
 
         <form action="createuser" method="post">
             <label for="newusername"> Nyt brugernavn:</label>
             <input type="text" id="newusername" name="newusername"/>
+            <br/>
             <label for="newpassword"> Nyt password:</label>
             <input type="password" id="newpassword" name="newpassword">
-            <br/>
-            <input type="submit" value="Opret bruger!"/>
         </form>
-
         <br/>
-        <a href="CreateUser.jsp">Opret bruger</a>
+        <input type="submit" value="Opret bruger!"/>
 
 
 
