@@ -19,26 +19,27 @@ import java.util.ArrayList;
 
 @WebServlet(name = "addtocart", urlPatterns = {"/addtocart"})
 public class AddToCart extends HttpServlet {
-    private ConnectionPool connectionPool;
+    private ConnectionPool connectionPool = ApplicationStart.getConnectionPool();
 
     @Override
-    public void init() throws ServletException {
-        this.connectionPool = ApplicationStart.getConnectionPool();
-    }
-
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         // You shouldn't end up here with a GET-request, thus you get sent back to frontpage
 
+        HttpSession session = request.getSession();
+        Cart cart = (Cart) request.getSession(Boolean.parseBoolean("cart"));
+        cart.resetCart();
+
+        session.setAttribute("cart", cart);
+
+        request.getRequestDispatcher("ordre.jsp").forward(request, response);
     }
 
+    @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         response.setContentType("text/html");
         HttpSession session = request.getSession();
-        session.setAttribute("user", null); // invalidating user object in session scope
+        Cart cart = (Cart) session.getAttribute("cart");
 
-        Cart cart = new Cart();
-
-        session.setAttribute("cart", cart);
 
         int lenght = Integer.parseInt(request.getParameter("lenght"));
         int width = Integer.parseInt(request.getParameter("width"));
