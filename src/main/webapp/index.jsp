@@ -33,6 +33,8 @@
             <p>If you want to create a new account, you can do so here: <a href="create.jsp">Create</a> </p>
         </c:if>
 
+        <a href="svg">se SVG</a>
+
 
 
 

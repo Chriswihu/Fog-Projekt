@@ -35,8 +35,9 @@ public class Login extends HttpServlet
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        response.setCharacterEncoding("UTF-8");
+
         request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
 
         response.setContentType("text/html");
         HttpSession session = request.getSession();
@@ -54,7 +55,8 @@ public class Login extends HttpServlet
             LengthList lengthList = CarportFacade.getLengths(connectionPool);
             session.setAttribute("lengthList", lengthList);
 
-            request.getRequestDispatcher("ordre.jsp").forward(request, response);
+//            request.getRequestDispatcher("ordre.jsp").forward(request, response);
+            request.getRequestDispatcher("svgtest.jsp").forward(request, response);
         } catch (DatabaseException e) {
             request.setAttribute("errormessage", e.getMessage());
             request.getRequestDispatcher("error.jsp").forward(request, response);

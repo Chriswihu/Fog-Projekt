@@ -43,7 +43,7 @@
         </c:if>
         <c:if test="${sessionScope.user != null }">
             <a class="nav-item nav-link" href="${pageContext.request.contextPath}/">Kunde</a>
-            <a class="nav-item nav-link" href="${pageContext.request.contextPath}/">Ordrer</a>
+            <a class="nav-item nav-link" href="${pageContext.request.contextPath}/WEB-INF/svgtest.jsp">Ordrer</a>
             <a class="nav-item nav-link" href="${pageContext.request.contextPath}/">Indkøbskurv</a>
             <c:if test="${sessionScope.user.role == 'admin' }">
                 <a class="nav-item topnav-right" href="${pageContext.request.contextPath}/admin.jsp">Admin</a>
