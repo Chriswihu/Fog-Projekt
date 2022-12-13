@@ -2,10 +2,12 @@ package dat.backend.model.persistence;
 
 import dat.backend.model.entities.Carport;
 import dat.backend.model.entities.Cart;
+import dat.backend.model.entities.LengthList;
 import dat.backend.model.entities.User;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class CarportMapper {
@@ -58,29 +60,37 @@ public class CarportMapper {
 
     }
 
-//    public static List<Integer> getLengths(ConnectionPool connectionPool)
-//    {
-////        List<Integer> lengthList = new ArrayList<>();
-////        String sql = "SELECT * FROM lengths";
-////
-////        try (Connection connection = connectionPool.getConnection()) {
-////            try (PreparedStatement ps = connection.prepareStatement(sql)) {
-////                ResultSet rs = ps.executeQuery();
-////                while (rs.next()) {
-////
-////                    int id = rs.getInt("lengthsid");
-////                    int length = rs.getInt("length");
-////
-////                    Top newTop = new Top(id, name, price);
-////
-////                    topList.add(newTop);
-////                }
-////            } catch (SQLException ex) {
-////                ex.printStackTrace();
-////            }
-////        } catch (SQLException throwables) {
-////            throwables.printStackTrace();
-////        }
-////        return lengthList;
-//    }
+    public static LengthList getLengths(ConnectionPool connectionPool) {
+        String sql = "SELECT * FROM lengths";
+
+        LengthList lengthList = null;
+        List<Integer> length = new ArrayList<>();
+        List<Integer> width = new ArrayList<>();
+        List<Integer> shedlength = new ArrayList<>();
+        List<Integer> shedwidth = new ArrayList<>();
+
+        try (Connection connection = connectionPool.getConnection()) {
+            try (PreparedStatement ps = connection.prepareStatement(sql)) {
+                ResultSet rs = ps.executeQuery();
+
+                while (rs.next())
+                {
+                    length.add(rs.getInt("length"));
+                    width.add(rs.getInt("width"));
+                    shedlength.add(rs.getInt("shedlength"));
+                    shedwidth.add(rs.getInt("shedwidth"));
+
+                }
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        width.removeIf(n -> n == 0);
+        shedwidth.removeIf(n -> n == 0);
+
+        lengthList = new LengthList(length, width, shedlength, shedwidth);
+        return lengthList;
+    }
 }

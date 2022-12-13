@@ -1,15 +1,15 @@
 package dat.backend.model.persistence;
 
 import dat.backend.model.entities.Cart;
+import dat.backend.model.entities.LengthList;
 import dat.backend.model.entities.User;
 
 import java.sql.SQLException;
-import java.util.List;
 
 public class CarportFacade {
-//    public static List<Integer> getLengths(ConnectionPool connectionPool) throws SQLException {
-//        return CarportMapper.getLengths(connectionPool);
-//    }
+    public static LengthList getLengths(ConnectionPool connectionPool) throws SQLException {
+        return CarportMapper.getLengths(connectionPool);
+    }
     public static int createOrder(User user, ConnectionPool connectionPool)
     {
         return CarportMapper.createOrder(user, connectionPool);

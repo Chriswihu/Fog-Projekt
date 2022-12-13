@@ -2,8 +2,10 @@ package dat.backend.control;
 
 import dat.backend.model.config.ApplicationStart;
 import dat.backend.model.entities.Cart;
+import dat.backend.model.entities.LengthList;
 import dat.backend.model.entities.User;
 import dat.backend.model.exceptions.DatabaseException;
+import dat.backend.model.persistence.CarportFacade;
 import dat.backend.model.persistence.UserFacade;
 import dat.backend.model.persistence.ConnectionPool;
 
@@ -14,9 +16,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.List;
+import java.sql.SQLException;
 
-@WebServlet(name = "login", urlPatterns = {"/login"} )
+@WebServlet(name = "login", urlPatterns = {"/login"})
 public class Login extends HttpServlet
 {
     private ConnectionPool connectionPool;
@@ -27,14 +29,12 @@ public class Login extends HttpServlet
         this.connectionPool = ApplicationStart.getConnectionPool();
     }
 
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException
-    {
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         // You shouldn't end up here with a GET-request, thus you get sent back to frontpage
         response.sendRedirect("index.jsp");
     }
 
-    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException
-    {
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         response.setCharacterEncoding("UTF-8");
         request.setCharacterEncoding("UTF-8");
 
@@ -45,21 +45,21 @@ public class Login extends HttpServlet
         String password = request.getParameter("password");
 
 
-
-        try
-        {
+        try {
             session = request.getSession();
             User user = UserFacade.login(username, password, connectionPool);
             session.setAttribute("user", user); // adding user object to session scope
             Cart cart = new Cart();
             session.setAttribute("cart", cart);
+            LengthList lengthList = CarportFacade.getLengths(connectionPool);
+            session.setAttribute("lengthList", lengthList);
 
             request.getRequestDispatcher("ordre.jsp").forward(request, response);
-        }
-        catch (DatabaseException e)
-        {
+        } catch (DatabaseException e) {
             request.setAttribute("errormessage", e.getMessage());
             request.getRequestDispatcher("error.jsp").forward(request, response);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
     }
 
