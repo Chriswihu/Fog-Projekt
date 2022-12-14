@@ -13,23 +13,54 @@ import java.util.Locale;
 public class SVGServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//        request.setCharacterEncoding("UTF-8");
+//        response.setCharacterEncoding("UTF-8");
+//        Locale.setDefault(new Locale("US"));
+//
+//        String length = request.getParameter("length");
+//        String width = request.getParameter("width");
+////        String shedlength = request.getParameter("shedlength");
+////        String shedwidth = request.getParameter("shedwidth");
+//
+//        try {
+//            request.setAttribute("length", length);
+//            request.setAttribute("width", width);
+//            String viewbox = "0 0 " + length + " " + width;
+//            System.out.println(viewbox);
+//
+//            SVG carport = CarportSVG.createNewSVG(0, 0, 100, 65, viewbox);
+//            CarportSVG.addbeams(carport);
+//
+//            request.setAttribute("svg", carport.toString());
+//
+//            request.getRequestDispatcher("WEB-INF/svgtest.jsp").forward(request, response);
+//
+//        } catch (ServletException | IOException e) {
+//            throw new RuntimeException(e);
+//        }
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+    {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
         Locale.setDefault(new Locale("US"));
 
-        String length = request.getParameter("length");
-        String width = request.getParameter("width");
+        SVG carport = null;
+        int CPlength = Integer.parseInt(request.getParameter("CPlength"));
+        int CPwidth = Integer.parseInt(request.getParameter("CPwidth"));
 //        String shedlength = request.getParameter("shedlength");
 //        String shedwidth = request.getParameter("shedwidth");
 
         try {
-            request.setAttribute("length", length);
-            request.setAttribute("width", width);
-            String viewbox = "0 0 " + length + " " + width;
-            System.out.println(viewbox);
+            String viewbox = "0 0 " + CPlength + " " + CPwidth;
 
-            SVG carport = CarportSVG.createNewSVG(0, 0, 100, 65, viewbox);
-            CarportSVG.addbeams(carport);
+            carport = CarportSVG.createNewSVG(0, 0, CPwidth, CPlength, viewbox);
+            CarportSVG.addFrame(carport,CPwidth,CPlength);
+            CarportSVG.addPillars(carport,CPwidth, CPlength);
+            CarportSVG.addbeams(carport, CPlength);
+
 
             request.setAttribute("svg", carport.toString());
 
@@ -38,10 +69,6 @@ public class SVGServlet extends HttpServlet {
         } catch (ServletException | IOException e) {
             throw new RuntimeException(e);
         }
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
 }

@@ -16,9 +16,9 @@
 
         <p>SVG Demo </p>
 
-        <form action="addtocart" method="post">
+        <form action="svg" method="post">
             <label>Vælg en Carport Længde:
-                <select name="lenght">
+                <select name="CPlength">
                     <c:forEach var="item" items="${sessionScope.lengthList.length}">
                         <option value="${item}">${item} cm</option>
                     </c:forEach>
@@ -27,14 +27,14 @@
             <br/>
             <br/>
             <label>Vælg en Carport Brede:
-                <select name="width">
+                <select name="CPwidth">
                     <c:forEach var="item" items="${sessionScope.lengthList.width}">
                         <option value="${item}">${item} cm</option>
                     </c:forEach>
                 </select>
             </label>
             <br/>
-            <button class="btn btn-primary" name="addtocart">Tilføj til Kurv
+            <button class="btn btn-primary" name="update">Tegn
                 <c:if test="${sessionScope.cart == null}">
                 </c:if>
             </button>

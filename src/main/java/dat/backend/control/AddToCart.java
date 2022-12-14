@@ -26,7 +26,7 @@ public class AddToCart extends HttpServlet {
         // You shouldn't end up here with a GET-request, thus you get sent back to frontpage
 
         HttpSession session = request.getSession();
-        Cart cart = (Cart) request.getSession(Boolean.parseBoolean("cart"));
+        Cart cart = (Cart) request.getSession(false);
         cart.resetCart();
 
         session.setAttribute("cart", cart);

@@ -6,12 +6,14 @@ public class SVG {
     private int height;
     private int width;
     private StringBuilder svgString = new StringBuilder();
-    private StringBuilder viewbox = new StringBuilder();
+    private String viewbox;
 
     private final static String HEADERTEMP =
-            "<svg x=\"%d%%\" y=\"%d%%\" height=\"%d%%\" width=\"%d%%\" viewBox=\"%s\" preserveAspectRatio=\"xMinYMin\">";
+            "<svg x=\"%d\" y=\"%d\" height=\"%d\" width=\"%d\" viewBox=\"%s\" preserveAspectRatio=\"xMinYMin\">";
     private final static String RECTTEMP =
             "<rect x=\"%d\" y=\"%d\" height=\"%f\" width=\"%f\" style=\"stroke:#000000; fill: #ffffff\"/>";
+    private final static String PILLARTEMP =
+            "<rect x=\"%f\" y=\"%f\" width=\"10\" height=\"10\" style=\"stroke:#000000; fill: #ffffff\"/>";
     private final static String ARROWHEADTEMP = "<defs>\n" +
             "<marker\n" + "id=\"beginArrow\"\n" + "markerWidth=\"10\"\n" + "markerHeight=\"10\"\n" + "refX=\"0\"\n" +
             "refY=\"5\"\n" + "orient=\"auto\">\n" + "<path d=\"M0,5 L10,0 L10,10 L0,5\" style=\"fill: #000000;\"/>\n" +
@@ -27,23 +29,31 @@ public class SVG {
 
     public String viewBox(int x, int y, int height, int width)
     {
-        viewbox.append(String.format(VIEWBOX, x, y, height, width));
-        return String.valueOf(viewbox);
+        viewbox = String.format(VIEWBOX, x, y, height, width);
+        return viewbox;
     }
 
-    public SVG(int x, int y, int height, int width) {
-        svgString.append(String.format(HEADERTEMP, x, y, height, width, viewBox(x, y, height, width)));
+    public SVG(int x, int y, int height, int width, String  viewbox) {
+        svgString.append(String.format(HEADERTEMP, x, y, height, width, viewbox));
         this.x = x;
         this.y = y;
         this.height = height;
         this.width = width;
-
+        this.viewbox = viewbox;
     }
 
 //    <rect x="0" y="0" width="4.5" height="600" style="fill:rgb(255,255,255);stroke-width:1;stroke:rgb(0,0,0)"/>
+//     <rect x="0" y="35" width="780" height="4.5" style="stroke:#000000; fill: #ffffff"/>
+//        <rect x="0" y="565" width="780" height="4.5" style="stroke:#000000; fill: #ffffff"/>
 
     public void addRect(int x, int y, double height, double width) {
         svgString.append(String.format(RECTTEMP, x, y, height, width));
+
+    }
+
+    public void  addPillar(double height, double width)
+    {
+        svgString.append(String.format(PILLARTEMP, height, width));
 
     }
 
