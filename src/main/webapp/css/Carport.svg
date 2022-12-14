@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="800" height="650" fill="white">
+
+    <rect x="0" y="0" width="780" height="600" style="fill:rgb(255,255,255);stroke-width:0;stroke:rgb(0,0,0)"/>
+
+    <rect x="0" y="35" width="780" height="4.5" style="fill:rgb(255,0,0);stroke-width:1;stroke:rgb(0,0,0)"/>
+    <rect x="0" y="565" width="780" height="4.5" style="fill:rgb(255,0,0);stroke-width:1;stroke:rgb(0,0,0)"/>
+
+    <rect x="115" y="32.5" width="10" height="10" style="fill:rgb(0,255,0);stroke-width:1;stroke:rgb(0,0,0)"/>
+    <rect x="390" y="32.5" width="10" height="10" style="fill:rgb(0,255,0);stroke-width:1;stroke:rgb(0,0,0)"/>
+    <rect x="755" y="32.5" width="10" height="10" style="fill:rgb(0,255,0);stroke-width:1;stroke:rgb(0,0,0)"/>
+    <rect x="115" y="562.5" width="10" height="10" style="fill:rgb(0,255,0);stroke-width:1;stroke:rgb(0,0,0)"/>
+    <rect x="390" y="562.5" width="10" height="10" style="fill:rgb(0,255,0);stroke-width:1;stroke:rgb(0,0,0)"/>
+    <rect x="755" y="562.5" width="10" height="10" style="fill:rgb(0,255,0);stroke-width:1;stroke:rgb(0,0,0)"/>
+
+    <rect x="530" y="32.5" width="10" height="10" style="fill:rgb(0,255,0);stroke-width:1;stroke:rgb(0,0,0)"/>
+    <rect x="530" y="562.5" width="10" height="10" style="fill:rgb(0,255,0);stroke-width:1;stroke:rgb(0,0,0)"/>
+    <rect x="530" y="300" width="10" height="10" style="fill:rgb(0,255,0);stroke-width:1;stroke:rgb(0,0,0)"/>
+    <rect x="755" y="300" width="10" height="10" style="fill:rgb(0,255,0);stroke-width:1;stroke:rgb(0,0,0)"/>
+
+    <g fill="none" stroke="black" stroke-width="4">
+        <path stroke-dasharray="5,5" d="M535 37.5 l217 0"/>
+        <path stroke-dasharray="5,5" d="M760 37.5 l0 530"/>
+        <path stroke-dasharray="5,5" d="M535 567.5 l217 0"/>
+        <path stroke-dasharray="5,5" d="M535 37.5 l0 530"/>
+    </g>
+
+    <rect x="0" y="0" width="4.5" height="600" style="fill:rgb(0,0,255);stroke-width:1;stroke:rgb(0,0,0)"/>
+
+    <rect x="60" y="0" width="4.5" height="600" style="fill:rgb(0,0,255);stroke-width:1;stroke:rgb(0,0,0)"/>
+
+    <rect x="120" y="0" width="4.5" height="600" style="fill:rgb(0,0,255);stroke-width:1;stroke:rgb(0,0,0)"/>
+
+    <rect x="180" y="0" width="4.5" height="600" style="fill:rgb(0,0,255);stroke-width:1;stroke:rgb(0,0,0)"/>
+
+    <rect x="240" y="0" width="4.5" height="600" style="fill:rgb(0,0,255);stroke-width:1;stroke:rgb(0,0,0)"/>
+
+    <rect x="300" y="0" width="4.5" height="600" style="fill:rgb(0,0,255);stroke-width:1;stroke:rgb(0,0,0)"/>
+
+    <rect x="360" y="0" width="4.5" height="600" style="fill:rgb(0,0,255);stroke-width:1;stroke:rgb(0,0,0)"/>
+
+    <rect x="420" y="0" width="4.5" height="600" style="fill:rgb(0,0,255);stroke-width:1;stroke:rgb(0,0,0)"/>
+
+    <rect x="480" y="0" width="4.5" height="600" style="fill:rgb(0,0,255);stroke-width:1;stroke:rgb(0,0,0)"/>
+
+    <rect x="540" y="0" width="4.5" height="600" style="fill:rgb(0,0,255);stroke-width:1;stroke:rgb(0,0,0)"/>
+
+    <rect x="600" y="0" width="4.5" height="600" style="fill:rgb(0,0,255);stroke-width:1;stroke:rgb(0,0,0)"/>
+
+    <rect x="660" y="0" width="4.5" height="600" style="fill:rgb(0,0,255);stroke-width:1;stroke:rgb(0,0,0)"/>
+
+    <rect x="720" y="0" width="4.5" height="600" style="fill:rgb(0,0,255);stroke-width:1;stroke:rgb(0,0,0)"/>
+
+    <rect x="780" y="0" width="4.5" height="600" style="fill:rgb(0,0,255);stroke-width:1;stroke:rgb(0,0,0)"/>
+
+</svg>

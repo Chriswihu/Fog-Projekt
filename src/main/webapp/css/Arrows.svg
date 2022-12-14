@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="850" height="650" fill="white">
+
+    <rect x="0" y="0" width="850" height="700" style="fill:rgb(255,255,255)"></rect>
+    <text style="text-anchor: middle" fill="black" transform="translate(30,300) rotate(90)">600 cm</text>
+    <text style="text-anchor: middle" fill="black" transform="translate(400,620)">800 cm</text>
+
+    <defs>
+        <marker
+                id="beginArrow"
+                markerWidth="12"
+                markerHeight="12"
+                refX="0"
+                refY="6"
+                orient="auto">
+            <path d="M0,5 L10,0 L10,10 L0,5" style="fill: #000000;"/>
+        </marker>
+        <marker
+                id="endArrow"
+                markerWidth="12"
+                markerHeight="12"
+                refX="12"
+                refY="6"
+                orient="auto">
+            <path d="M0,0 L10,5 L0,10 L0,0 " style="fill: #000000;"/>
+        </marker>
+    </defs>
+
+    <line x1="50" y1="50" x2="50" y2="600"
+          style="stroke: #006600;marker-start: url(#beginArrow);"/>
+
+    <line x1="50" y1="600" x2="800" y2="600"
+          style="stroke: #006600;marker-end: url(#endArrow);"/>
+
+</svg>

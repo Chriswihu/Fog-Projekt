@@ -14,6 +14,12 @@
 
     <jsp:body>
 
+<%--        <p>SVG Demo </p>--%>
+
+<%--        <a href="svg">Se Tegning</a>--%>
+
+
+
         <p>Startcode for 2nd semester </p>
 
         <c:if test="${sessionScope.user != null}">
@@ -23,7 +29,12 @@
         <c:if test="${sessionScope.user == null}">
             <p>You are not logged in yet. You can do it here: <a
                     href="login.jsp">Login</a></p>
+
+            <p>If you want to create a new account, you can do so here: <a href="create.jsp">Create</a> </p>
         </c:if>
+
+
+
 
     </jsp:body>
 

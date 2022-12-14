@@ -1,0 +1,69 @@
+<svg version="1.1"
+     xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     height="100%" viewBox="0 0 900 690"
+     preserveAspectRatio="xMinYMin">
+
+    <rect x="0" y="0" width="900" height="690" style="fill:rgb(255,255,255)"></rect>
+    <svg version="1.1"
+         xmlns="http://www.w3.org/2000/svg"
+         xmlns:xlink="http://www.w3.org/1999/xlink"
+         x="75"
+         y="25"
+         width="800"
+         height="600"
+         viewBox="0 0 780 600"
+         preserveAspectRatio="xMinYMin">
+
+        <rect x="0" y="0" width="800" height="600" style="fill:rgb(255,255,255);stroke-width:0;stroke:rgb(0,0,0)"/>
+
+        <rect x="0" y="35" width="780" height="4.5" style="fill:rgb(255,255,255);stroke-width:1;stroke:rgb(0,0,0)"/>
+        <rect x="0" y="565" width="780" height="4.5" style="fill:rgb(255,255,255);stroke-width:1;stroke:rgb(0,0,0)"/>
+
+        <rect x="0" y="0" width="4.5" height="600" style="fill:rgb(255,255,255);stroke-width:1;stroke:rgb(0,0,0)"/>
+        <rect x="780" y="0" width="4.5" height="600" style="fill:rgb(255,255,255);stroke-width:1;stroke:rgb(0,0,0)"/>
+
+        <rect x="80" y="32.5" width="10" height="10" style="fill:rgb(255,255,255);stroke-width:1;stroke:rgb(0,0,0)"/>
+        <rect x="420" y="32.5" width="10" height="10" style="fill:rgb(255,255,255);stroke-width:1;stroke:rgb(0,0,0)"/>
+        <rect x="750" y="32.5" width="10" height="10" style="fill:rgb(255,255,255);stroke-width:1;stroke:rgb(0,0,0)"/>
+        <rect x="80" y="562.5" width="10" height="10" style="fill:rgb(255,255,255);stroke-width:1;stroke:rgb(0,0,0)"/>
+        <rect x="420" y="562.5" width="10" height="10" style="fill:rgb(255,255,255);stroke-width:1;stroke:rgb(0,0,0)"/>
+        <rect x="750" y="562.5" width="10" height="10" style="fill:rgb(255,255,255);stroke-width:1;stroke:rgb(0,0,0)"/>
+
+        <g fill="none" stroke="black" stroke-width="2">
+            <path stroke-dasharray="5,5" d="M55 40 L540 565"/>
+            <path stroke-dasharray="5,5" d="M540 40 L55 565"/>
+        </g>
+
+    </svg>
+
+    <text style="text-anchor: middle" fill="black" transform="translate(30,300) rotate(90)">600 cm</text>
+    <text style="text-anchor: middle" fill="black" transform="translate(400,665)">780 cm</text>
+
+    <defs>
+        <marker
+                id="beginArrow"
+                markerWidth="10"
+                markerHeight="10"
+                refX="0"
+                refY="5"
+                orient="auto">
+            <path d="M0,5 L10,0 L10,10 L0,5" style="fill: #000000;"/>
+        </marker>
+        <marker
+                id="endArrow"
+                markerWidth="10"
+                markerHeight="10"
+                refX="10"
+                refY="5"
+                orient="auto">
+            <path d="M0,0 L10,5 L0,10 L0,0 " style="fill: #000000;"/>
+        </marker>
+    </defs>
+
+    <line x1="50" y1="25" x2="50" y2="625"
+          style="stroke: #006600;marker-start: url(#beginArrow);marker-end: url(#endArrow);"/>
+
+    <line x1="75" y1="650" x2="855" y2="650"
+          style="stroke: #006600;marker-start: url(#beginArrow);marker-end: url(#endArrow);"/>
+</svg>

@@ -54,7 +54,7 @@
         </c:if>
     </div>
 </div>
-</header>
+
 
 <div id="body" class="container mt-4" style="min-height: 400px;">
     <h1>
