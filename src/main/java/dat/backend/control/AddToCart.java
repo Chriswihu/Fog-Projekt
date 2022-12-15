@@ -41,16 +41,28 @@ public class AddToCart extends HttpServlet {
         Cart cart = (Cart) session.getAttribute("cart");
 
 
-        int lenght = Integer.parseInt(request.getParameter("lenght"));
-        int width = Integer.parseInt(request.getParameter("width"));
-        int shedLenght = Integer.parseInt(request.getParameter("shedLenght"));
-        int shedWidth = Integer.parseInt(request.getParameter("shedWidth"));
+        int CPlenght = Integer.parseInt(request.getParameter("CPlenght"));
+        int CPwidth = Integer.parseInt(request.getParameter("CPwidth"));
+        int SHlenght = Integer.parseInt(request.getParameter("SHlenght"));
+        int SHwidth = Integer.parseInt(request.getParameter("SHwidth"));
 
-        Carport carport = new Carport(lenght, width, shedLenght, shedWidth);
-        cart.add(carport);
-        session.setAttribute("cart", cart);
+        try {
 
-        request.getRequestDispatcher("ordre.jsp").forward(request, response);
+            if(cart.getCarportList() == null)
+            {
+                Carport carport = new Carport(CPlenght, CPwidth, SHlenght, SHwidth);
+                cart.add(carport);
+            }
+            else {
+                cart.resetCart();
+            }
+            session.setAttribute("cart", cart);
+
+            request.getRequestDispatcher("ordre.jsp").forward(request, response);
+        } catch (ServletException | IOException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 
 }

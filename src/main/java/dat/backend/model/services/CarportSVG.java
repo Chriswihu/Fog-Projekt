@@ -53,11 +53,11 @@ public class CarportSVG {
         return y;
 
     }
-    public static SVG addbeams(SVG svg, int width) {
+    public static SVG addbeams(SVG svg, int height, int width) {
         int y = width/numberOfBeams(width);
 
         for (int i = y; i < width; i += y) {
-            svg.addRect(i, 0, width, 4.5);
+            svg.addRect(i, 0, height, 4.5);
         }
         return svg;
     }

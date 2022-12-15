@@ -1,5 +1,7 @@
 package dat.backend.control;
 
+import dat.backend.model.entities.Carport;
+import dat.backend.model.entities.Cart;
 import dat.backend.model.services.CarportSVG;
 import dat.backend.model.services.SVG;
 
@@ -47,11 +49,14 @@ public class SVGServlet extends HttpServlet {
         response.setCharacterEncoding("UTF-8");
         Locale.setDefault(new Locale("US"));
 
+        HttpSession session = request.getSession();
+        Cart cart = (Cart) session.getAttribute("cart");
+
         SVG carport = null;
         int CPlength = Integer.parseInt(request.getParameter("CPlength"));
         int CPwidth = Integer.parseInt(request.getParameter("CPwidth"));
-//        String shedlength = request.getParameter("shedlength");
-//        String shedwidth = request.getParameter("shedwidth");
+        int SHlength = Integer.parseInt(request.getParameter("SHlength"));
+        int SHwidth = Integer.parseInt(request.getParameter("SHwidth"));
 
         try {
             String viewbox = "0 0 " + CPlength + " " + CPwidth;
@@ -59,12 +64,15 @@ public class SVGServlet extends HttpServlet {
             carport = CarportSVG.createNewSVG(0, 0, CPwidth, CPlength, viewbox);
             CarportSVG.addFrame(carport,CPwidth,CPlength);
             CarportSVG.addPillars(carport,CPwidth, CPlength);
-            CarportSVG.addbeams(carport, CPlength);
+            CarportSVG.addbeams(carport, CPwidth, CPlength);
 
+            Carport carportOrder = new Carport(CPlength, CPwidth, SHlength, SHwidth);
+            cart.add(carportOrder);
+            session.setAttribute("cart", cart);
 
             request.setAttribute("svg", carport.toString());
 
-            request.getRequestDispatcher("WEB-INF/svgtest.jsp").forward(request, response);
+            request.getRequestDispatcher("ordre.jsp").forward(request, response);
 
         } catch (ServletException | IOException e) {
             throw new RuntimeException(e);

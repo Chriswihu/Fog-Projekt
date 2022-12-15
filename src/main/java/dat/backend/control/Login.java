@@ -55,8 +55,8 @@ public class Login extends HttpServlet
             LengthList lengthList = CarportFacade.getLengths(connectionPool);
             session.setAttribute("lengthList", lengthList);
 
-//            request.getRequestDispatcher("ordre.jsp").forward(request, response);
-            request.getRequestDispatcher("WEB-INF/svgtest.jsp").forward(request, response);
+            request.getRequestDispatcher("ordre.jsp").forward(request, response);
+//            request.getRequestDispatcher("WEB-INF/svgtest.jsp").forward(request, response);
         } catch (DatabaseException e) {
             request.setAttribute("errormessage", e.getMessage());
             request.getRequestDispatcher("error.jsp").forward(request, response);

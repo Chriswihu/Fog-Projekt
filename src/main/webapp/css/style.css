@@ -46,8 +46,6 @@ th, td {
 }
 
 .dropdown-menu {
-
-
 }
 
 .topnav.topnav-right.dropdown:hover > .dropdown-menu {
@@ -56,6 +54,21 @@ th, td {
 .topnav.topnav-right.dropdown > .dropdown-toggle:active {
     /*Without this, clicking will make it sticky*/
     pointer-events: none;
+}
+
+/*.right-div{*/
+/*    margin-left: 20%;*/
+/*}*/
+
+/*.left-div{*/
+/*    float: left;*/
+/*    width: 80%;*/
+/*}*/
+.flex-parent {
+    display: flex;
+}
+.flex-child {
+    flex: 1;
 }
 
 
