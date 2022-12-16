@@ -5,22 +5,16 @@ import java.util.List;
 
 public class Cart
 {
-    private ArrayList carportList = new ArrayList();
+    private final ArrayList carportList = new ArrayList<>();
 
     public Cart()
     {
-
     }
 
     public void add(Carport carport)
     {
         carportList.add(carport);
     }
-
-//    public double price(Carport carport)
-//    {
-//        return carport.getTotalPrice();
-//    }
 
     public int length(Carport carport){
         return carport.getLength();
@@ -35,8 +29,18 @@ public class Cart
         return carportList;
     }
 
+    public Carport getCarport()
+    {
+        return getCarportList().get(0);
+    }
+
     public void resetCart()
     {
         carportList.clear();
+    }
+    public void updateCart(Carport carport)
+    {
+        carportList.clear();
+        carportList.add(carport);
     }
 }

@@ -56,20 +56,23 @@ th, td {
     pointer-events: none;
 }
 
-/*.right-div{*/
-/*    margin-left: 20%;*/
-/*}*/
-
-/*.left-div{*/
-/*    float: left;*/
-/*    width: 80%;*/
-/*}*/
 .flex-parent {
     display: flex;
 }
 .flex-child {
     flex: 1;
 }
+
+pc,
+ul {
+    border: 5px solid #003d76;
+    padding: .5em;
+}
+
+/*ul {*/
+/*    display: flex;*/
+/*    list-style: none;*/
+/*}*/
 
 
 

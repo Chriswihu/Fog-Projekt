@@ -20,6 +20,7 @@
             <p>You are logged in with the role of "${sessionScope.user.role}".</p>
         </c:if>
 
+
         <c:if test="${sessionScope.user == null}">
             <p>You are not logged in yet. You can do it here: <a
                     href="../login.jsp">Login</a></p>

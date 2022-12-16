@@ -42,9 +42,9 @@
                href="${pageContext.request.contextPath}/login.jsp">Login</a>
         </c:if>
         <c:if test="${sessionScope.user != null }">
-            <a class="nav-item nav-link" href="${pageContext.request.contextPath}/">Kunde</a>
-            <a class="nav-item nav-link" href="${pageContext.request.contextPath}/WEB-INF/svgtest.jsp">Ordrer</a>
-            <a class="nav-item nav-link" href="${pageContext.request.contextPath}/">Indkøbskurv</a>
+            <a class="nav-item nav-link" href="${pageContext.request.contextPath}/customer.jsp">Kunde</a>
+            <a class="nav-item nav-link" href="${pageContext.request.contextPath}/ordre.jsp">Ordrer</a>
+            <a class="nav-item nav-link" href="${pageContext.request.contextPath}/WEB-INF/confirmation.jsp">Indkøbskurv</a>
             <c:if test="${sessionScope.user.role == 'admin' }">
                 <a class="nav-item topnav-right" href="${pageContext.request.contextPath}/admin.jsp">Admin</a>
             </c:if>

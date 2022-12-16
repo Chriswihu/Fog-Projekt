@@ -3,10 +3,7 @@ package dat.backend.control;
 import dat.backend.model.config.ApplicationStart;
 import dat.backend.model.entities.Carport;
 import dat.backend.model.entities.Cart;
-import dat.backend.model.entities.User;
-import dat.backend.model.exceptions.DatabaseException;
 import dat.backend.model.persistence.ConnectionPool;
-import dat.backend.model.persistence.UserFacade;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,7 +12,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.ArrayList;
 
 @WebServlet(name = "addtocart", urlPatterns = {"/addtocart"})
 public class AddToCart extends HttpServlet {
@@ -48,14 +44,9 @@ public class AddToCart extends HttpServlet {
 
         try {
 
-            if(cart.getCarportList() == null)
-            {
-                Carport carport = new Carport(CPlenght, CPwidth, SHlenght, SHwidth);
-                cart.add(carport);
-            }
-            else {
-                cart.resetCart();
-            }
+            Carport carport = new Carport(CPlenght, CPwidth, SHlenght, SHwidth);
+            cart.updateCart(carport);
+
             session.setAttribute("cart", cart);
 
             request.getRequestDispatcher("ordre.jsp").forward(request, response);

@@ -2,11 +2,12 @@ package dat.backend.control;
 
 import dat.backend.model.config.ApplicationStart;
 import dat.backend.model.entities.Cart;
+import dat.backend.model.entities.MaterialList;
 import dat.backend.model.entities.User;
 import dat.backend.model.exceptions.DatabaseException;
 import dat.backend.model.persistence.CarportFacade;
 import dat.backend.model.persistence.ConnectionPool;
-import dat.backend.model.persistence.UserFacade;
+import dat.backend.model.persistence.ItemFacade;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,7 +16,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.sql.SQLException;
 
 @WebServlet(name = "order", urlPatterns = {"/order"})
 public class Order extends HttpServlet {
@@ -26,10 +26,22 @@ public class Order extends HttpServlet {
         HttpSession session = request.getSession();
         Cart cart = (Cart) session.getAttribute("cart");
         User user = (User) session.getAttribute("user");
+        MaterialList materialList = new MaterialList();
 
         int orderId = CarportFacade.createOrder(user, connectionPool);
+        session.setAttribute("orderId", orderId);
+        materialList.CarportMaterials(cart.getCarport());
+        session.setAttribute("materialList", materialList);
 
-        CarportFacade.addToOrderLine(orderId, cart, connectionPool);
+        try
+        {
+            CarportFacade.addToOrderLine(orderId, cart, connectionPool);
+            ItemFacade.addToItemLine(orderId, materialList, connectionPool);
+        } catch (Exception e)
+        {
+            throw new RuntimeException(e);
+        }
+
 
         cart.resetCart();
         session.setAttribute("cart", cart);

@@ -2,8 +2,12 @@ package dat.backend.model.services;
 
 import dat.backend.model.entities.Carport;
 
-public class Calculator {
+public class Calculator
+{
+    public Calculator()
+    {
 
+    }
     public int antalTagBredt(Carport carport) {
         int s = carport.getLength();
         int t = 0;
@@ -27,6 +31,15 @@ public class Calculator {
             t++;
         }
         return t;
+    }
+    public int stolpeBolt(Carport carport)
+    {
+        return antalStolper(carport) * 3;
+    }
+
+    public int stolpeSkiver(Carport carport)
+    {
+        return antalStolper(carport) * 2;
     }
 
     public int pladsMellemStolper(Carport carport) {

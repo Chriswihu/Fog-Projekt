@@ -44,10 +44,10 @@ public class CarportSVG {
 
     public static int numberOfBeams(int width)
     {
-        int y = 0;
+        int y = -1;
 
-        while (width > 30) {
-            width = width - 60;
+        while (width > 55) {
+            width = width - 55;
             y++;
         }
         return y;

@@ -14,22 +14,30 @@
 
     <jsp:body>
 
-        <%--        <p>SVG Demo </p>--%>
-
-        <%--        <a href="svg">Se Tegning</a>--%>
-
-
         <p>Startcode for 2nd semester </p>
 
         <c:if test="${sessionScope.user != null}">
-            <p>You are logged in with the role of "${sessionScope.user.role}".</p>
+            <p>Du er logget ind med rolen: "${sessionScope.user.role}".</p>
+
+            <p>Bestil ny Carport
+                <br>
+                <a class="btn btn-primary" href="${pageContext.request.contextPath}/ordre.jsp">
+                    Byg-selv
+                </a>
+            </p>
+            <p>Gå til din Side
+                <br>
+                <a class="btn btn-primary" href="${pageContext.request.contextPath}/customer.jsp">
+                   Min side
+                </a>
+            </p>
         </c:if>
 
         <c:if test="${sessionScope.user == null}">
             <p>You are not logged in yet. You can do it here: <a
                     href="login.jsp">Login</a></p>
 
-            <p>If you want to create a new account, you can do so here: <a href="create.jsp">Create</a></p>
+<%--            <p>If you want to create a new account, you can do so here: <a href="create.jsp">Create</a></p>--%>
         </c:if>
     </jsp:body>
 
