@@ -19,7 +19,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet(name = "confirm", urlPatterns = {"confirm"})
+@WebServlet(name = "confirm", urlPatterns = {"/confirm"})
 public class Confirm extends HttpServlet
 {
     private final ConnectionPool connectionPool = ApplicationStart.getConnectionPool();
