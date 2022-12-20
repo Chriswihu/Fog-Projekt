@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Cart
 {
-    private final ArrayList carportList = new ArrayList<>();
+    private final ArrayList<Carport> carportList = new ArrayList<>();
 
     public Cart()
     {

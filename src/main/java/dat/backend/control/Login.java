@@ -1,10 +1,7 @@
 package dat.backend.control;
 
 import dat.backend.model.config.ApplicationStart;
-import dat.backend.model.entities.Cart;
-import dat.backend.model.entities.Item;
-import dat.backend.model.entities.LengthList;
-import dat.backend.model.entities.User;
+import dat.backend.model.entities.*;
 import dat.backend.model.exceptions.DatabaseException;
 import dat.backend.model.persistence.CarportFacade;
 import dat.backend.model.persistence.ItemFacade;
@@ -54,11 +51,13 @@ public class Login extends HttpServlet
             User user = UserFacade.login(username, password, connectionPool);
             session.setAttribute("user", user); // adding user object to session scope
             Cart cart = new Cart();
+            Materials materials = new Materials();
             session.setAttribute("cart", cart);
+            session.setAttribute("materials", materials);
             LengthList lengthList = CarportFacade.getLengths(connectionPool);
             session.setAttribute("lengthList", lengthList);
-            List<Item> itemList = ItemFacade.getItemList(connectionPool);
-            session.setAttribute("itemList",itemList);
+//            List<Item> itemList = ItemFacade.getItemList(connectionPool);
+//            session.setAttribute("itemList",itemList);
 
             request.getRequestDispatcher("index.jsp").forward(request, response);
         } catch (DatabaseException e) {

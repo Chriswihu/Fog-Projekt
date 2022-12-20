@@ -3,6 +3,8 @@ package dat.backend.control;
 import dat.backend.model.config.ApplicationStart;
 import dat.backend.model.entities.Carport;
 import dat.backend.model.entities.Cart;
+import dat.backend.model.entities.ItemLine;
+import dat.backend.model.entities.Materials;
 import dat.backend.model.persistence.ConnectionPool;
 
 import javax.servlet.ServletException;
@@ -35,6 +37,9 @@ public class AddToCart extends HttpServlet {
         response.setContentType("text/html");
         HttpSession session = request.getSession();
         Cart cart = (Cart) session.getAttribute("cart");
+//        Materials materials = (Materials) session.getAttribute("materials");
+
+//        ItemLine itemLine = (ItemLine) session.getAttribute("itemLine");
 
 
         int CPlenght = Integer.parseInt(request.getParameter("CPlenght"));
@@ -43,9 +48,14 @@ public class AddToCart extends HttpServlet {
         int SHwidth = Integer.parseInt(request.getParameter("SHwidth"));
 
         try {
-
             Carport carport = new Carport(CPlenght, CPwidth, SHlenght, SHwidth);
-            cart.updateCart(carport);
+//            itemLine = materials.CarportMaterials(carport);
+
+            if(cart != null)
+            {
+                cart.resetCart();
+                cart.add(carport);
+            }
 
             session.setAttribute("cart", cart);
 

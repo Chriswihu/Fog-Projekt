@@ -5,15 +5,20 @@ import java.util.List;
 
 public class ItemLine
 {
-    public ArrayList<Item> itemList = new ArrayList<>();
+    private final ArrayList<Item> itemList = new ArrayList<>();
 
     public ItemLine(){
-
     }
+
 
     public void addItem(Item item){
         itemList.add(item);
     }
 
-    public List<Item> getItemList(){ return itemList;}
+    public int getid(Item item) {return item.getId();}
+    public String getname(Item item) {return item.getName();}
+    public String getunit(Item item) {return item.getUnit();}
+    public List<Item> getItemList()
+    {
+        return itemList;}
 }

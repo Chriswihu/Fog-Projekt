@@ -2,9 +2,9 @@ package dat.backend.control;
 
 import dat.backend.model.config.ApplicationStart;
 import dat.backend.model.entities.Cart;
-import dat.backend.model.entities.MaterialList;
+import dat.backend.model.entities.ItemLine;
+import dat.backend.model.entities.Materials;
 import dat.backend.model.entities.User;
-import dat.backend.model.exceptions.DatabaseException;
 import dat.backend.model.persistence.CarportFacade;
 import dat.backend.model.persistence.ConnectionPool;
 import dat.backend.model.persistence.ItemFacade;
@@ -25,28 +25,28 @@ public class Order extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         HttpSession session = request.getSession();
         Cart cart = (Cart) session.getAttribute("cart");
+        Materials materials = (Materials) session.getAttribute("materials");
         User user = (User) session.getAttribute("user");
-        MaterialList materialList = new MaterialList();
 
         int orderId = CarportFacade.createOrder(user, connectionPool);
         session.setAttribute("orderId", orderId);
-        materialList.CarportMaterials(cart.getCarport());
-        session.setAttribute("materialList", materialList);
+
+        materials.addMaterials(cart.getCarport());
+        session.setAttribute("materials", materials);
+
 
         try
         {
+            ItemFacade.addToItemLine(orderId, materials, connectionPool);
             CarportFacade.addToOrderLine(orderId, cart, connectionPool);
-            ItemFacade.addToItemLine(orderId, materialList, connectionPool);
         } catch (Exception e)
         {
             throw new RuntimeException(e);
         }
 
 
-        cart.resetCart();
-        session.setAttribute("cart", cart);
 
-        request.getRequestDispatcher("WEB-INF/confirmation.jsp").forward(request, response);
+        request.getRequestDispatcher("checkout.jsp").forward(request, response);
     }
 
     @Override

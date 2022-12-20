@@ -36,13 +36,14 @@ public class CarportMapper {
 
         try (Connection connection = connectionPool.getConnection()) {
             for (Carport carport : cart.getCarportList()) {
-                try (PreparedStatement ps = connection.prepareStatement(sql)) {
+                try (PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
 
                     ps.setInt(1, orderId);
                     ps.setInt(2, carport.getLength());
                     ps.setInt(3, carport.getWidth());
-                    ps.setInt(4, carport.getShedLenght());
+                    ps.setInt(4, carport.getShedLength());
                     ps.setInt(5, carport.getShedWidth());
+
                     ps.executeUpdate();
                 }
             }
@@ -107,7 +108,7 @@ public class CarportMapper {
                     order.add(width);
                     order.add(shedlength);
                     order.add(shedwidth);
-                    return order;
+
                 }
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -115,6 +116,6 @@ public class CarportMapper {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-        return null;
+        return order;
     }
 }

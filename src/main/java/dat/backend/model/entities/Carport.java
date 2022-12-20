@@ -4,13 +4,13 @@ public class Carport
 {
     private int length;
     private int width;
-    private int shedLenght;
+    private int shedLength;
     private int shedWidth;
 
-    public Carport(int length, int width, int shedLenght, int shedWidth) {
+    public Carport(int length, int width, int shedLength, int shedWidth) {
         this.length = length;
         this.width = width;
-        this.shedLenght = shedLenght;
+        this.shedLength = shedLength;
         this.shedWidth = shedWidth;
     }
 
@@ -22,8 +22,8 @@ public class Carport
         return width;
     }
 
-    public int getShedLenght() {
-        return shedLenght;
+    public int getShedLength() {
+        return shedLength;
     }
 
     public int getShedWidth() {

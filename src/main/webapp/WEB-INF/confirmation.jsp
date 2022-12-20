@@ -14,23 +14,9 @@
 
     <jsp:body>
 
-        <h2>Hej ${sessionScope.user.username}, tak for bestillingen.</h2>
+        <h2>Hej ${sessionScope.user.username}, tak for din bestilling. Fog håber du bliver tilfreds med den!</h2>
 
-        <form action="confirm" method="post">
-            <c:forEach var="item" items="${sessionScope.carportList}">
-                Længde: ${item.length}<br/>
-                Brede: ${item.width}<br/>
-                Skur Længde: ${item.shedlenght}<br/>
-                Skur Brede: ${item.shedWidth}<br/>
-            </c:forEach>
-            <br>
-            <br>
-            <br>
-<%--            <c:forEach var="item" items="${sessionScope.materialList}">--%>
-<%--                Order ID: ${item.idorder} Navn: ${item.name} Længde: ${item.length} Antal: ${item.quantity} Enhed: ${item.unit}--%>
-<%--                <br/>--%>
-<%--            </c:forEach>--%>
-        </form>
+
 
     </jsp:body>
 

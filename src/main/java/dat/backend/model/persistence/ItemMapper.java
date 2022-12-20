@@ -1,16 +1,13 @@
 package dat.backend.model.persistence;
 
-import dat.backend.model.entities.Cart;
-import dat.backend.model.entities.Item;
-import dat.backend.model.entities.LengthList;
-import dat.backend.model.entities.MaterialList;
+import dat.backend.model.entities.*;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class ItemMapper {
-    public static List<Item> getList(ConnectionPool connectionPool) {
+    public static List<Item> getMaterialsList(ConnectionPool connectionPool) {
         List<Item> itemList = new ArrayList<>();
 
         String sql = "SELECT * FROM inventar";
@@ -36,17 +33,17 @@ public class ItemMapper {
         return itemList;
     }
 
-    public static void createOrderItem(int orderId, MaterialList materialList, ConnectionPool connectionPool) {
+    public static void createOrderItem(int orderId, Materials materialList, ConnectionPool connectionPool) {
 
 
     }
 
-    public static void addToItemLine(int orderId, MaterialList materialList, ConnectionPool connectionPool) {
+    public static void addToItemLine(int orderId, Materials materials, ConnectionPool connectionPool) {
         String sql = "INSERT INTO itemline (idorder, inventarid, name, length, quantity, unit) VALUES (?,?,?,?,?,?)";
 
         try (Connection connection = connectionPool.getConnection())
         {
-            for (Item item : materialList.getMaterialList())
+            for (Item item : materials.getMaterials())
             {
                 try (PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS))
                 {

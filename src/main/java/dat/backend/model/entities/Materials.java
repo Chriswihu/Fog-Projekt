@@ -5,15 +5,18 @@ import dat.backend.model.services.Calculator;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MaterialList {
-    Calculator calculator;
-    Item item;
+public class Materials
+{
+    private final ArrayList<Item> materials = new ArrayList<>();
+    private Calculator calculator = new Calculator();
+    private Item item;
 
-    public ArrayList<Item> materials = new ArrayList<>();
-
-    public void CarportMaterials(Carport carport)
+    public Materials()
     {
-        calculator = new Calculator();
+    }
+
+    public void addMaterials(Carport carport)
+    {
         //Carport
         //under-stern til for og bag
         materials.add(item = new Item(1,"25x200 mm. trykimp. Brædt", carport.getWidth(),2,"stk"));
@@ -52,16 +55,24 @@ public class MaterialList {
         materials.add(item = new Item(17,"4,5 x 70 mm. Skruer 400 stk.", 0,2,"pakke"));
         materials.add(item = new Item(18,"4,5 x 50 mm. Skruer 300 stk.", 0,2,"pakke"));
 
-
         //Skur
-        materials.add(item = new Item(3,"38x73 mm. Lægte ubh.", carport.getShedLenght(),2,"stk"));
-        materials.add(item = new Item(4,"45x95 mm. Reglar ub.", carport.getShedWidth(),2,"stk"));
-        materials.add(item = new Item(19,"stalddørsgreb 50x75", 0,calculator.stolpeBolt(carport),"sæt"));
-        materials.add(item = new Item(20,"t hængsel 390 mm", 0,calculator.stolpeBolt(carport),"stk"));
-        materials.add(item = new Item(21,"vinkelbeslag 35", 0,calculator.stolpeBolt(carport),"stk"));
+        if(carport.getShedLength() != 0)
+        {
+            materials.add(item = new Item(3, "38x73 mm. Lægte ubh.", carport.getShedLength(), 2, "stk"));
+            materials.add(item = new Item(4, "45x95 mm. Reglar ub.", carport.getShedWidth(), 2, "stk"));
+            materials.add(item = new Item(19, "stalddørsgreb 50x75", 0, calculator.stolpeBolt(carport), "sæt"));
+            materials.add(item = new Item(20, "t hængsel 390 mm", 0, calculator.stolpeBolt(carport), "stk"));
+            materials.add(item = new Item(21, "vinkelbeslag 35", 0, calculator.stolpeBolt(carport), "stk"));
+        }
     }
 
-    public List<Item> getMaterialList()
+    public int id(Item item) {return item.getId();}
+    public String name(Item item) {return item.getName();}
+    public int length(Item item) {return item.getLength();}
+    public int quantity(Item item) {return item.getQuantity();}
+    public String unit(Item item) {return item.getUnit();}
+
+    public List<Item> getMaterials()
     {
         return materials;
     }

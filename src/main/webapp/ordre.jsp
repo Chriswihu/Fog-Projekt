@@ -21,7 +21,7 @@
                         <h2>Vælg din Carport's Mål</h2>
                         <label>Vælg en Carport Længde:
                             <br/>
-                            <select name="CPlength">
+                            <select name="CPwidth">
                                 <c:forEach var="item" items="${sessionScope.lengthList.length}">
                                     <option value="${item}">${item} cm</option>
                                 </c:forEach>
@@ -31,7 +31,7 @@
                         <br/>
                         <label>Vælg en Carport Brede:
                             <br/>
-                            <select name="CPwidth">
+                            <select name="CPheight">
                                 <c:forEach var="item" items="${sessionScope.lengthList.width}">
                                     <option value="${item}">${item} cm</option>
                                 </c:forEach>
@@ -41,7 +41,8 @@
                         <br/>
                         <label>Vælg en Skur Længde:
                             <br/>
-                            <select name="SHlength">
+                            <select name="SHwidth">
+                                <option value="0">Intet Skur</option>
                                 <c:forEach var="item" items="${sessionScope.lengthList.shedLength}">
                                     <option value="${item}">${item} cm</option>
                                 </c:forEach>
@@ -51,7 +52,8 @@
                         <br/>
                         <label>Vælg en Skur Brede:
                             <br/>
-                            <select name="SHwidth">
+                            <select name="SHheight">
+                                <option value="0">Intet Skur</option>
                                 <c:forEach var="item" items="${sessionScope.lengthList.shedWidth}">
                                     <option value="${item}">${item} cm</option>
                                 </c:forEach>
@@ -72,28 +74,29 @@
                             <c:forEach var="item" items="${sessionScope.cart.carportList}">
                                 <tr>
                                     <td>
-                                        <c:out value="${item.length}"/>
+                                        <c:out value="${item.length} cm"/>
                                     </td>
                                     <td>
-                                        <c:out value="${item.width}"/>
+                                        <c:out value="${item.width} cm"/>
                                     </td>
                                     <td>
-                                        <c:out value="${item.shedLenght}"/>
+                                        <c:out value="${item.shedLength} cm"/>
                                     </td>
                                     <td>
-                                        <c:out value="${item.shedWidth}"/>
+                                        <c:out value="${item.shedWidth} cm"/>
                                     </td>
 <%--                                    <td>--%>
 <%--                                        <button class="btn btn-primary" formaction="addtocart">Slet</button>--%>
 <%--                                    </td>--%>
                                 </tr>
                             </c:forEach>
+                            <button class="btn btn-primary" name="addtocart">Tilføj til Kurv
+                                <c:if test="${sessionScope.cart == null}">
+                                    ${sessionScope.cart.updateCart}
+                                </c:if>
+                            </button>
                         </table>
-                        <button class="btn btn-primary" name="addtocart">Tilføj til Kurv
-                            <c:if test="${sessionScope.cart == null}">
-                                ${sessionScope.cart.updateCart}
-                            </c:if>
-                        </button>
+
 
 
                         <p class="mt-4"><a class="btn btn-primary" href="order">Bestil</a></p>
@@ -105,9 +108,12 @@
                     </form>
                 </form>
             </div>
-            <div class='child flex-child' style="width: 70%">
+
+            <div class='child flex-child' style="width: 70%; height: 70%" >
                 <h2>Skitse af dine Valgte Mål</h2>
+                <ul>
                     ${requestScope.svg}
+                </ul>
             </div>
         </div>
 

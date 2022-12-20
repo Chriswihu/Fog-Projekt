@@ -52,25 +52,34 @@ public class SVGServlet extends HttpServlet {
         HttpSession session = request.getSession();
         Cart cart = (Cart) session.getAttribute("cart");
 
-        SVG carport = null;
-        int CPlength = Integer.parseInt(request.getParameter("CPlength"));
+
+        //NOTER!!!
+        //CPwidth = længden af Carporten, går --> som X
+        //CPheight = breden af Carporten, går v-v som Y
         int CPwidth = Integer.parseInt(request.getParameter("CPwidth"));
-        int SHlength = Integer.parseInt(request.getParameter("SHlength"));
+        int CPheight = Integer.parseInt(request.getParameter("CPheight"));
         int SHwidth = Integer.parseInt(request.getParameter("SHwidth"));
+        int SHheight = Integer.parseInt(request.getParameter("SHheight"));
+        String frameviewbox = "0 0 " + (CPwidth+120) + " " + (CPheight+120);
+        String innerviewbox = "0 0 " + (CPwidth+10) + " " + (CPheight+10);
+
 
         try {
-            String viewbox = "0 0 " + CPlength + " " + CPwidth;
+            SVG frame = CarportSVG.createNewSVG(0, 0, CPwidth, CPheight, frameviewbox);
+            SVG carport = CarportSVG.createNewSVG(75, 25, CPwidth, CPheight,innerviewbox);
 
-            carport = CarportSVG.createNewSVG(0, 0, CPwidth, CPlength, viewbox);
-            CarportSVG.addFrame(carport,CPwidth,CPlength);
-            CarportSVG.addPillars(carport,CPwidth, CPlength);
-            CarportSVG.addbeams(carport, CPwidth, CPlength);
+//            CarportSVG.addField(carport, (CPwidth + 120), (CPheight + 120));
+            CarportSVG.addFrame(carport, 0, 0, CPwidth, CPheight);
+            CarportSVG.addPillars(carport,CPwidth, CPheight);
+            CarportSVG.addbeams(carport, CPwidth, CPheight);
 
-            Carport carportOrder = new Carport(CPlength, CPwidth, SHlength, SHwidth);
+            CarportSVG.addInnerSVG(frame, carport, (CPwidth), (CPheight));
+
+            Carport carportOrder = new Carport(CPwidth, CPheight, SHwidth, SHheight);
             cart.add(carportOrder);
             session.setAttribute("cart", cart);
 
-            request.setAttribute("svg", carport.toString());
+            request.setAttribute("svg", frame.toString());
 
             request.getRequestDispatcher("ordre.jsp").forward(request, response);
 
