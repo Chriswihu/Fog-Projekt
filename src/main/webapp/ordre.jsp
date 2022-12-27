@@ -17,7 +17,7 @@
         <div class='parent flex-parent'>
             <div class='child flex-child style="width: 25%'>
                 <form action="svg" method="post">
-                    <form action="addtocart" method="post">
+                    <form id="order" action="addtocart" method="post">
                         <h2>Vælg din Carport's Mål</h2>
                         <label>Vælg en Carport Længde:
                             <br/>
@@ -90,13 +90,13 @@
 <%--                                    </td>--%>
                                 </tr>
                             </c:forEach>
-                            <button class="btn btn-primary" name="addtocart">Tilføj til Kurv
-                                <c:if test="${sessionScope.cart == null}">
-                                    ${sessionScope.cart.updateCart}
-                                </c:if>
-                            </button>
-                        </table>
 
+                        </table>
+                        <button class="btn btn-primary" name="addtocart">Tilføj til Kurv
+                            <c:if test="${sessionScope.cart == null}">
+                                ${sessionScope.cart.updateCart}
+                            </c:if>
+                        </button>
 
 
                         <p class="mt-4"><a class="btn btn-primary" href="order">Bestil</a></p>

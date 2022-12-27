@@ -19,7 +19,7 @@
         <c:forEach var="item" items="${sessionScope.cart.carportList}">
             Længde: ${item.length}<br/>
             Brede: ${item.width}<br/>
-            Skur Længde: ${item.shedLenght}<br/>
+            Skur Længde: ${item.shedLength}<br/>
             Skur Brede: ${item.shedWidth}<br/>
         </c:forEach>
             <form action="confirm" method="get">
