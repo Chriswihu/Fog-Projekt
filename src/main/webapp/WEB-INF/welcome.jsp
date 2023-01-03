@@ -5,24 +5,24 @@
 
 <t:FogWEB>
     <jsp:attribute name="header">
-         Welcome to the logged in area
+         Velkommen til Fog Carport
     </jsp:attribute>
 
     <jsp:attribute name="footer">
-        Logged in area
+        Velkommen
     </jsp:attribute>
 
     <jsp:body>
 
-        <p>You should be logged in now</p>
+        <p>Du burde nu være logget ind,</p>
 
         <c:if test="${sessionScope.user != null}">
-            <p>You are logged in with the role of "${sessionScope.user.role}".</p>
+            <p>Du er logget ind med rollen "${sessionScope.user.role}".</p>
         </c:if>
 
 
         <c:if test="${sessionScope.user == null}">
-            <p>You are not logged in yet. You can do it here: <a
+            <p>Du er ikke logget ind endnu, det kan du gøre her: <a
                     href="../login.jsp">Login</a></p>
         </c:if>
 

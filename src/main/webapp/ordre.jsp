@@ -1,15 +1,15 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%--<%@page errorPage="error.jsp" isErrorPage="false" %>--%>
+<%@page errorPage="error.jsp" isErrorPage="false" %>
 
 <t:FogWEB>
     <jsp:attribute name="header">
-         Bestil din Carport
+         Byg din Carport
     </jsp:attribute>
 
     <jsp:attribute name="footer">
-        Carport
+        Carport bygger
     </jsp:attribute>
 
     <jsp:body>

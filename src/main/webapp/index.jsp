@@ -1,15 +1,15 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@page errorPage="error.jsp" isErrorPage="false" %>
+<%--<%@page errorPage="error.jsp" isErrorPage="false" %>--%>
 
 <t:FogWEB>
     <jsp:attribute name="header">
-         Welcome to the frontpage
+         Velkommen til forsiden.
     </jsp:attribute>
 
     <jsp:attribute name="footer">
-        Welcome to the frontpage
+        Forsiden
     </jsp:attribute>
 
     <jsp:body>
@@ -17,9 +17,11 @@
         <p>Velkommen til Fog Carport Bygger</p>
 
         <c:if test="${sessionScope.user != null}">
-            <p>Hej ${sessionScope.user.name} og velkommen! Du er logget ind med rolen: "${sessionScope.user.role}".</p>
+            <p>Hej ${sessionScope.user.username} og velkommen til! Du er logget ind med rollen:
+                "${sessionScope.user.role}".</p>
 
             <p>Bestil ny Carport
+                <br>
                 <br>
                 <a class="btn btn-primary" href="${pageContext.request.contextPath}/ordre.jsp">
                     Byg-selv
@@ -27,17 +29,21 @@
             </p>
             <p>Gå til din Side
                 <br>
+                <br>
                 <a class="btn btn-primary" href="${pageContext.request.contextPath}/customer.jsp">
-                   Min side
+                    Min side
                 </a>
             </p>
         </c:if>
 
         <c:if test="${sessionScope.user == null}">
-            <p>You are not logged in yet. You can do it here: <a
-                    href="login.jsp">Login</a></p>
-
-<%--            <p>If you want to create a new account, you can do so here: <a href="create.jsp">Create</a></p>--%>
+            <p>Du er ikke logget ind endnu, eller du har ikke en Profil. Du kan gøre begge på denne side:
+                <br>
+                <br>
+                <a class="btn btn-primary" href="${pageContext.request.contextPath}/login.jsp">
+                    Login/opret Profil
+                </a>
+            </p>
         </c:if>
     </jsp:body>
 

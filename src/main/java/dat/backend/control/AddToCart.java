@@ -43,13 +43,14 @@ public class AddToCart extends HttpServlet {
         int SHlength = Integer.parseInt(request.getParameter("SHlength"));
         int SHwidth = Integer.parseInt(request.getParameter("SHwidth"));
 
+        session.setAttribute("cart", null);
         try {
             Carport carport = new Carport(CPlength, CPwidth, SHlength, SHwidth);
-            if(cart != null)
-            {
-                cart.resetCart();
-                cart.add(carport);
-            }
+//            if(cart != null)
+//            {
+//                cart.resetCart();
+//                cart.add(carport);
+//            }
 
             session.setAttribute("cart", cart);
 

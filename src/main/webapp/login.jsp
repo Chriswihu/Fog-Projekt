@@ -6,11 +6,11 @@
 
 <t:FogWEB>
     <jsp:attribute name="header">
-             Login
+             Login/opret Profil
     </jsp:attribute>
 
     <jsp:attribute name="footer">
-            Login
+            Login/Create
     </jsp:attribute>
 
     <jsp:body>

@@ -60,6 +60,7 @@ public class Login extends HttpServlet
 //            session.setAttribute("itemList",itemList);
 
             request.getRequestDispatcher("index.jsp").forward(request, response);
+
         } catch (DatabaseException e) {
             request.setAttribute("errormessage", e.getMessage());
             request.getRequestDispatcher("error.jsp").forward(request, response);

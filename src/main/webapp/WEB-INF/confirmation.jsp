@@ -5,11 +5,11 @@
 
 <t:FogWEB>
     <jsp:attribute name="header">
-         Confirmation
+         Betaling
     </jsp:attribute>
 
     <jsp:attribute name="footer">
-        Confirmation page
+        Betalingsformular
     </jsp:attribute>
 
     <jsp:body>

@@ -5,11 +5,11 @@
 
 <t:FogWEB>
     <jsp:attribute name="header">
-         Welcome to the Customer page
+         Velkommen til din side.
     </jsp:attribute>
 
     <jsp:attribute name="footer">
-        Welcome to the Customer page
+        kundeside
     </jsp:attribute>
 
     <jsp:body>

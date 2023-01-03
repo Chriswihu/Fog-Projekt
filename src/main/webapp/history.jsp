@@ -5,19 +5,20 @@
 
 <t:FogWEB>
     <jsp:attribute name="header">
-         Welcome to the frontpage
+         Velkommen til din historik
     </jsp:attribute>
 
     <jsp:attribute name="footer">
-        Welcome to the frontpage
+        Historik
     </jsp:attribute>
 
     <jsp:body>
 
-        <p>Startcode for 2nd semester </p>
+        <p>Ordre Historik</p>
 
         <c:if test="${sessionScope.user != null}">
-            <p>Hej ${sessionScope.user.username}, du er logget ind med rolen: "${sessionScope.user.role}".</p>
+            <p>Hej ${sessionScope.user.username} og velkommen til! Du er logget ind med rollen:
+                "${sessionScope.user.role}".</p>
         </c:if>
 
 

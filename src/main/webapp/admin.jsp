@@ -5,11 +5,11 @@
 
 <t:FogWEB>
     <jsp:attribute name="header">
-         Welcome to the Admin page
+         Velkommen til Admin siden.
     </jsp:attribute>
 
     <jsp:attribute name="footer">
-        Welcome to the Admin page
+        Admin siden
     </jsp:attribute>
 
     <jsp:body>
