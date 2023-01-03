@@ -41,7 +41,7 @@ public class Login extends HttpServlet
 
         response.setContentType("text/html");
         HttpSession session = request.getSession();
-        session.setAttribute("user", null); // invalidating user object in session scope
+        session.setAttribute("user", null);
         String username = request.getParameter("username");
         String password = request.getParameter("password");
 
@@ -49,15 +49,14 @@ public class Login extends HttpServlet
         try {
             session = request.getSession();
             User user = UserFacade.login(username, password, connectionPool);
-            session.setAttribute("user", user); // adding user object to session scope
+            session.setAttribute("user", user);
+
             Cart cart = new Cart();
             Materials materials = new Materials();
             session.setAttribute("cart", cart);
             session.setAttribute("materials", materials);
             LengthList lengthList = CarportFacade.getLengths(connectionPool);
             session.setAttribute("lengthList", lengthList);
-//            List<Item> itemList = ItemFacade.getItemList(connectionPool);
-//            session.setAttribute("itemList",itemList);
 
             request.getRequestDispatcher("index.jsp").forward(request, response);
 
