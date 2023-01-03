@@ -29,17 +29,11 @@ public class Order extends HttpServlet {
         int orderId = CarportFacade.createOrder(user, connectionPool);
         session.setAttribute("orderId", orderId);
 
-//        Materials materials = (Materials) session.getAttribute("materials");
-//        materials.addMaterials(cart.getCarport());
-//        session.setAttribute("materials", materials);
 
 
-        try
-        {
-//            ItemFacade.addToItemLine(orderId, materials, connectionPool);
+        try {
             CarportFacade.addToOrderLine(orderId, cart, connectionPool);
-        } catch (Exception e)
-        {
+        } catch (Exception e) {
             throw new RuntimeException(e);
         }
 
