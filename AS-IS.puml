@@ -1,0 +1,42 @@
+@startuml
+|#Orange|k| Kunde
+|c|Carport Formular
+|#MediumBlue|f| Fog
+
+|k|
+start
+:Åben Website;
+|c|
+:Carport Formular;
+:Anmoder om Kunde input;
+|k|
+:Vælger Carport Længde og Bredde;
+:Vælger Redskabsrum Længde og Bredde;
+:Trykker Tegn din Carport;
+:Indtast Kontaktoplysninger;
+:Bestil Tilbud;
+|c|
+:Sender info via Email;
+
+|f|
+:Modtager Mål og Kontaktoplysninger;
+:Tegner Carport i Skitseprogram;
+:Justere Fuld Pris;
+:Samler Tilbuds info og Sender via Post;
+|k|
+:Modtager Tilbud;
+:Kan Sige ja eller nej til Tilbud;
+:Sender Response;
+|f|
+ if (Tilbud) is (Ja) then
+         |f|
+         :Samler Materialer i Stykliste;
+         :Ordren Pakkes;
+         :Ordren Sendes til Kunden;
+ else (nej)
+       end
+       |k|
+ endif
+         :Kunden bygger Carporten;
+ stop
+@enduml

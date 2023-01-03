@@ -1,0 +1,62 @@
+@startuml
+|#Orange|k| Kunde
+|c|Carport Program
+|#MediumBlue|f| Fog
+
+|k|
+start
+:Åben Website;
+|c|
+repeat
+    :database check;
+        if (login) is (existing) then
+            |k|
+            :Indtaster Login Info;
+            |c|
+        else (create)
+            repeat:database check;
+            :Ønskede Login;
+            |k|
+            :Indtaster Login Info;
+            |c|
+            repeat while (Er Login Ledigt?) is (no)
+        ->yes;
+        endif
+        :Login Check;
+    repeat while (Login True?) is (no)
+    ->yes;
+    :Du er Logget ind;
+|k|
+:Byg din Carport;
+:Vælg Carport Længde og Bredde;
+:Vælg Skur Længde og Bredde;
+:Trykker Tegn din Carport;
+|c|
+:Carport bliver lagt i indkøbskurven;
+:SVG tegner Carport]
+:Præsentere Carport Skitse;
+|k|
+:Trykker Bestil;
+|c|
+:Modtager betaling for Ordren;
+:Opretter og Gemmer Ordre]
+:Opretter og Gemmer Stykliste]
+
+
+ if (Ordre) is (Kvittering) then
+        |k|
+        :Sender Styklisten til Kunden;
+        :Gemmer Kvittering]
+        :Afventer Levering;
+ else (Stykliste)
+        |f|
+        :Modtager Ordre og Stykliste;
+        :Samler Materialer i Stykliste;
+        :Pakker Ordre;
+        :Ordre Opdateres]
+        :Sender Ordren til Kunden;
+        |k|
+ endif
+         :Kunden bygger Carporten;
+ stop
+@enduml

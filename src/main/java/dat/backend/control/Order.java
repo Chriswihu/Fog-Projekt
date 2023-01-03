@@ -25,28 +25,25 @@ public class Order extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         HttpSession session = request.getSession();
         Cart cart = (Cart) session.getAttribute("cart");
-        Materials materials = (Materials) session.getAttribute("materials");
         User user = (User) session.getAttribute("user");
-
         int orderId = CarportFacade.createOrder(user, connectionPool);
         session.setAttribute("orderId", orderId);
 
-        materials.addMaterials(cart.getCarport());
-        session.setAttribute("materials", materials);
+//        Materials materials = (Materials) session.getAttribute("materials");
+//        materials.addMaterials(cart.getCarport());
+//        session.setAttribute("materials", materials);
 
 
         try
         {
-            ItemFacade.addToItemLine(orderId, materials, connectionPool);
+//            ItemFacade.addToItemLine(orderId, materials, connectionPool);
             CarportFacade.addToOrderLine(orderId, cart, connectionPool);
         } catch (Exception e)
         {
             throw new RuntimeException(e);
         }
 
-
-
-        request.getRequestDispatcher("checkout.jsp").forward(request, response);
+        request.getRequestDispatcher("WEB-INF/confirmation.jsp").forward(request, response);
     }
 
     @Override

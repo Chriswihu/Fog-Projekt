@@ -7,13 +7,15 @@ public class Item
     private int length;
     private int quantity;
     private String unit;
+    private String des;
 
-    public Item(int id, String name, int length, int quantity, String unit) {
+    public Item(int id, String name, int length, int quantity, String unit, String des) {
         this.id = id;
         this.name = name;
         this.length = length;
         this.quantity = quantity;
         this.unit = unit;
+        this.des = des;
     }
 
     public int getId() {
@@ -34,5 +36,21 @@ public class Item
 
     public String getUnit() {
         return unit;
+    }
+
+    public String getDes() {
+        return des;
+    }
+
+    @Override
+    public String toString() {
+        return "Item{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", length=" + length +
+                ", quantity=" + quantity +
+                ", unit='" + unit + '\'' +
+                ", des=" + des +
+                '}';
     }
 }

@@ -20,44 +20,27 @@ public class Confirm extends HttpServlet {
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-
-        request.setCharacterEncoding("UTF-8");
-        response.setCharacterEncoding("UTF-8");
-
-        response.setContentType("text/html");
         HttpSession session = request.getSession();
-        int orderId = (int) session.getAttribute("orderId");
         Cart cart = (Cart) session.getAttribute("cart");
-        Materials materials = (Materials) session.getAttribute("materials");
+        int orderId = (int) session.getAttribute("orderId");
 
+        Materials materials = (Materials) session.getAttribute("materials");
+        materials.addMaterials(cart.getCarport());
 
         session.setAttribute("orderId", orderId);
-//        session.setAttribute("materials", materials);
-//
-//        materials.addMaterials(cart.getCarport());
-//        session.setAttribute("materials", materials);
+        session.setAttribute("materials", materials);
 
         try
         {
+            ItemFacade.addToItemLine(orderId, materials, connectionPool);
 
-//            ItemFacade.addToItemLine(orderId, itemLine, connectionPool);
-//            CarportFacade.addToOrderLine(orderId, cart, connectionPool);
-
-        } catch (Exception e) {
+        } catch (Exception e)
+        {
             throw new RuntimeException(e);
         }
-
         cart.resetCart();
-
-
-        request.getRequestDispatcher("WEB-INF/confirmation.jsp").forward(request, response);
-
-
-        //        ArrayList carportList;
-//        carportList = CarportFacade.getOrder(orderId, connectionPool);
-//        session.setAttribute("carportList", carportList);
-
-
+        session.setAttribute("cart", cart);
+        request.getRequestDispatcher("checkout.jsp").forward(request, response);
 
     }
 

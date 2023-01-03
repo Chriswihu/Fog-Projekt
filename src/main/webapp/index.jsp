@@ -14,10 +14,10 @@
 
     <jsp:body>
 
-        <p>Startcode for 2nd semester </p>
+        <p>Velkommen til Fog Carport Bygger</p>
 
         <c:if test="${sessionScope.user != null}">
-            <p>Du er logget ind med rolen: "${sessionScope.user.role}".</p>
+            <p>Hej ${sessionScope.user.name} og velkommen! Du er logget ind med rolen: "${sessionScope.user.role}".</p>
 
             <p>Bestil ny Carport
                 <br>

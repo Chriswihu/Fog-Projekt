@@ -23,7 +23,7 @@ public class Calculator
         int t = 2;
 
         if (carport.getShedWidth() > 0 && carport.getShedLength() > 0) {
-            t = t + 4;
+            t = t + 2;
         }
 
         while (s > 300) {

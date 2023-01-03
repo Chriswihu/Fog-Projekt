@@ -33,7 +33,7 @@
                 <p>Se din gemte Carport
                     <br>
                     <a class="btn btn-primary" name="Ret din Carport" href="${pageContext.request.contextPath}/changeorder.jsp">
-                        Ret
+                        Rediger Carport
                     </a>
                 </p>
             </div>
@@ -41,7 +41,7 @@
                 <p>Se din Bestilling
                     <br>
                     <a class="btn btn-primary" name="Se din historik" href="${pageContext.request.contextPath}/history.jsp">
-                        Historik
+                        Ordre Historik
                     </a>
                 </p>
             </div>

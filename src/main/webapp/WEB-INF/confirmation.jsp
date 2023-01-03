@@ -14,7 +14,45 @@
 
     <jsp:body>
 
-        <h2>Hej ${sessionScope.user.username}, tak for din bestilling. Fog håber du bliver tilfreds med den!</h2>
+        <h2>Hej ${sessionScope.user.username}, du har valgt den følgende Carport.</h2>
+        <br>
+        <ul>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Længde</th>
+                    <th>Brede</th>
+                    <th>Skur Længde</th>
+                    <th>Skur Brede</th>
+                        <%--                                <th>Slet</th>--%>
+                </tr>
+                </thead>
+                <c:forEach var="item" items="${sessionScope.cart.carportList}">
+                    <tr>
+                        <td>
+                            <c:out value="${item.length} cm"/>
+                        </td>
+                        <td>
+                            <c:out value="${item.width} cm"/>
+                        </td>
+                        <td>
+                            <c:out value="${item.shedLength} cm"/>
+                        </td>
+                        <td>
+                            <c:out value="${item.shedWidth} cm"/>
+                        </td>
+                            <%--                                    <td>--%>
+                            <%--                                        <button class="btn btn-primary" formaction="addtocart">Slet</button>--%>
+                            <%--                                    </td>--%>
+                    </tr>
+                </c:forEach>
+
+            </table>
+        </ul>
+        <br>
+        <h2>Ønsker du at betale nu og få den bestilt hjem?</h2>
+        <p class="mt-4"><a class="btn btn-primary" href="confirm">Bestil</a></p>
+        <br>
 
 
 

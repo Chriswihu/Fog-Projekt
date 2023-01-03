@@ -14,52 +14,50 @@
 
     <jsp:body>
 
-        <h2>Gennemse din Ordre og se din Stykliste igennem, inden du bestiller.</h2>
-
-        <c:forEach var="item" items="${sessionScope.cart.carportList}">
-            Længde: ${item.length}<br/>
-            Brede: ${item.width}<br/>
-            Skur Længde: ${item.shedLength}<br/>
-            Skur Brede: ${item.shedWidth}<br/>
-        </c:forEach>
-            <form action="confirm" method="get">
-                <table class="table table-info">
-                    <thead>
+        <h2>Din Ordre er nu bestil og bliver Behandlet af Fog. Du kan nu kigge din Stykliste igennem.</h2>
+        <br>
+        <form action="confirm" method="get">
+            <table class="table table-info">
+                <thead>
+                <tr>
+                    <th>Beskrivelse</th>
+                    <th>Længde</th>
+                    <th>Antal</th>
+                    <th>Enhed</th>
+                    <th>Beskrivelse</th>
+                </tr>
+                </thead>
+                <c:forEach var="item" items="${sessionScope.materials.materials}">
                     <tr>
-                        <th>Beskrivelse</th>
-                        <th>Længde</th>
-                        <th>Antal</th>
-                        <th>Enhed</th>
+                        <td>
+                            <c:out value="${item.name}"/>
+                        </td>
+                        <td>
+                            <c:out value="${item.length}"/>
+                        </td>
+                        <td>
+                            <c:out value="${item.quantity}"/>
+                        </td>
+                        <td>
+                            <c:out value="${item.unit}"/>
+                        </td>
+                        <td>
+                            <c:out value="${item.des}"/>
+                        </td>
                     </tr>
-                    </thead>
-                    <c:forEach var="item" items="${sessionScope.materials.materials}">
-                        <tr>
-                            <td>
-                                <c:out value="${item.name}"/>
-                            </td>
-                            <td>
-                                <c:out value="${item.length}"/>
-                            </td>
-                            <td>
-                                <c:out value="${item.quantity}"/>
-                            </td>
-                            <td>
-                                <c:out value="${item.unit}"/>
-                            </td>
-                        </tr>
-                    </c:forEach>
-                </table>
-                <c:forEach var="item" items="${sessionScope.itemLine.getItemList}">
-                    Order ID: ${item.idorder.getid} Navn: ${item.name.name} Længde: ${item.length} Antal: ${item.quantity} Enhed: ${item.unit.unit}
-
-                    <br/>
                 </c:forEach>
+            </table>
+            <c:forEach var="item" items="${sessionScope.itemLine.getItemList}">
+                Order ID: ${item.idorder.getid} Navn: ${item.name.name} Længde: ${item.length} Antal: ${item.quantity} Enhed: ${item.unit.unit}
 
-                <br>
-                <br>
-                <br>
+                <br/>
+            </c:forEach>
 
-            </form>
+            <br>
+            <br>
+            <br>
+
+        </form>
 
 
     </jsp:body>

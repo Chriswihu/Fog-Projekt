@@ -21,7 +21,7 @@ public class ItemMapper {
                     String name = rs.getString("name");
                     String unit = rs.getString("unit");
 
-                    Item newItem = new Item(id, name, 0, 0, unit);
+                    Item newItem = new Item(id, name, 0, 0, unit, "");
                     itemList.add(newItem);
                 }
             } catch (SQLException ex) {
@@ -39,7 +39,7 @@ public class ItemMapper {
     }
 
     public static void addToItemLine(int orderId, Materials materials, ConnectionPool connectionPool) {
-        String sql = "INSERT INTO itemline (idorder, inventarid, name, length, quantity, unit) VALUES (?,?,?,?,?,?)";
+        String sql = "INSERT INTO itemline (idorder, inventarid, name, length, quantity, unit, des) VALUES (?,?,?,?,?,?,?)";
 
         try (Connection connection = connectionPool.getConnection())
         {
@@ -53,6 +53,7 @@ public class ItemMapper {
                     ps.setInt(4, item.getLength());
                     ps.setInt(5, item.getQuantity());
                     ps.setString(6, item.getUnit());
+                    ps.setString(7, item.getDes());
 
                     ps.executeUpdate();
                 }
