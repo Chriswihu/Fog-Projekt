@@ -29,7 +29,7 @@ public class SVGServlet extends HttpServlet {
 
         //NOTER!!!
         //CPwidth = længden af Carporten, går --> som X
-        //CPheight = breden af Carporten, går v-v som Y
+        //CPheight = bredden af Carporten, går v-v som Y
         int CPwidth = Integer.parseInt(request.getParameter("CPwidth"));
         int CPheight = Integer.parseInt(request.getParameter("CPheight"));
         int SHwidth = Integer.parseInt(request.getParameter("SHwidth"));
@@ -45,6 +45,7 @@ public class SVGServlet extends HttpServlet {
             CarportSVG.addPillars(carport,CPwidth, CPheight);
             CarportSVG.addbeams(carport, CPwidth, CPheight);
             CarportSVG.addInnerSVG(frame, carport, (CPwidth), (CPheight));
+
 
             Carport carportOrder = new Carport(CPwidth, CPheight, SHwidth, SHheight);
             cart.add(carportOrder);

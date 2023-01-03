@@ -21,6 +21,7 @@
                     <label>Vælg en Carport Længde:
                         <br/>
                         <select name="CPwidth">
+                            <option value="0">Længde</option>
                             <c:forEach var="item" items="${sessionScope.lengthList.length}">
                                 <option value="${item}">${item} cm</option>
                             </c:forEach>
@@ -28,9 +29,10 @@
                     </label>
                     <br/>
                     <br/>
-                    <label>Vælg en Carport Brede:
+                    <label>Vælg en Carport Bredde:
                         <br/>
                         <select name="CPheight">
+                            <option value="0">Bredde</option>
                             <c:forEach var="item" items="${sessionScope.lengthList.width}">
                                 <option value="${item}">${item} cm</option>
                             </c:forEach>
@@ -61,7 +63,7 @@
                     <br/>
                     <br/>
 
-                    <form id="order" action="addtocart" method="post">
+                    <form action="addtocart" method="post">
                         <table class="table table-striped">
                             <thead>
                             <tr>
@@ -91,20 +93,21 @@
                                         <%--                                    </td>--%>
                                 </tr>
                             </c:forEach>
-
                         </table>
+<%--                        <input class="btn btn-primary" type="submit" name="addtocart" value="Tilføj til Kurv"/>--%>
                         <button class="btn btn-primary" name="addtocart">Tilføj til Kurv
-<%--                            <c:if test="${sessionScope.cart == null}">--%>
-<%--                                ${sessionScope.cart.updateCart}--%>
-<%--                            </c:if>--%>
+                                <%--                            <c:if test="${sessionScope.cart == null}">--%>
+                                <%--                                ${sessionScope.cart.updateCart}--%>
+                                <%--                            </c:if>--%>
                         </button>
-
-                        <p class="mt-4"><a class="btn btn-primary" href="order">Gå til betaling</a></p>
-
-                            <%--        <c:forEach var="item" items="${sessionScope.lengthList}">--%>
-                            <%--            <c:out value="${item}"></c:out> <br>--%>
-                            <%--        </c:forEach>--%>
                     </form>
+
+                    <p class="mt-4"><a class="btn btn-primary" href="order">Gå til betaling</a></p>
+
+                        <%--        <c:forEach var="item" items="${sessionScope.lengthList}">--%>
+                        <%--            <c:out value="${item}"></c:out> <br>--%>
+                        <%--        </c:forEach>--%>
+
                 </form>
             </div>
 

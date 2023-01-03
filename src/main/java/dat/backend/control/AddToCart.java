@@ -43,15 +43,17 @@ public class AddToCart extends HttpServlet {
         int SHlength = Integer.parseInt(request.getParameter("SHlength"));
         int SHwidth = Integer.parseInt(request.getParameter("SHwidth"));
 
-        session.setAttribute("cart", null);
+        cart.resetCart();
+        session.setAttribute("cart", cart);
         try {
+            session.setAttribute("cart", null);
             Carport carport = new Carport(CPlength, CPwidth, SHlength, SHwidth);
 //            if(cart != null)
 //            {
 //                cart.resetCart();
-//                cart.add(carport);
+//
 //            }
-
+            cart.add(carport);
             session.setAttribute("cart", cart);
 
             request.getRequestDispatcher("ordre.jsp").forward(request, response);

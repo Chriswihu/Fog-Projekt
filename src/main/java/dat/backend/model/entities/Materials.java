@@ -8,7 +8,7 @@ import java.util.List;
 public class Materials
 {
     private final ArrayList<Item> materials = new ArrayList<>();
-    private Calculator calculator = new Calculator();
+    private final Calculator calculator = new Calculator();
     private Item item;
     public Materials()
     {

@@ -1,0 +1,26 @@
+@startuml
+'https://plantuml.com/use-case-diagram
+
+node "GitHub Remote"{
+    [Main] -[Hidden]- [Developer Branch]
+}
+
+package "Local Branches" {
+    node "Chris"{
+        [Chris code]
+    }
+    node "Ronica"{
+        [Ronica code]
+    }
+    node "Niko"{
+        [Niko code]
+    }
+}
+
+[Main] <- [Developer Branch]
+[Developer Branch] <---> [Chris code]
+[Developer Branch] <---> [Niko code]
+[Developer Branch] <---> [Ronica code]
+
+
+@enduml
