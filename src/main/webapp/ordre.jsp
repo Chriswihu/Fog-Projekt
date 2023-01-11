@@ -16,7 +16,8 @@
 
         <div class='parent flex-parent'>
             <div class='child flex-child style="width: 25%'>
-                <form action="svg" method="post">
+                <form action="addtocart" method="post">
+
                     <h2>Vælg din Carport's Mål</h2>
                     <label>Vælg en Carport Længde:
                         <br/>
@@ -62,40 +63,41 @@
                     </label>
                     <br/>
                     <br/>
-
-                    <form action="addtocart" method="post">
-                        <table class="table table-striped">
-                            <thead>
+                    <input class="btn btn-primary" type="submit" name="addtocart" value="Tilføj til Kurv"/>
+                    <br>
+                    <br>
+                    <table style="width: 500px" class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th style="width: 80px">Længde</th>
+                            <th style="width: 80px">Brede</th>
+                            <th style="width: 80px">Skur Længde</th>
+                            <th style="width: 80px">Skur Brede</th>
+                                <%--                                <th>Slet</th>--%>
+                        </tr>
+                        </thead>
+                        <c:forEach var="item" items="${sessionScope.cart.carportList}">
                             <tr>
-                                <th>Længde</th>
-                                <th>Brede</th>
-                                <th>Skur Længde</th>
-                                <th>Skur Brede</th>
-                                    <%--                                <th>Slet</th>--%>
+                                <td>
+                                    <c:out value="${item.length} cm"/>
+                                </td>
+                                <td>
+                                    <c:out value="${item.width} cm"/>
+                                </td>
+                                <td>
+                                    <c:out value="${item.shedLength} cm"/>
+                                </td>
+                                <td>
+                                    <c:out value="${item.shedWidth} cm"/>
+                                </td>
+                                    <%--                                    <td>--%>
+                                    <%--                                        <button class="btn btn-primary" formaction="addtocart">Slet</button>--%>
+                                    <%--                                    </td>--%>
                             </tr>
-                            </thead>
-                            <c:forEach var="item" items="${sessionScope.cart.carportList}">
-                                <tr>
-                                    <td>
-                                        <c:out value="${item.length} cm"/>
-                                    </td>
-                                    <td>
-                                        <c:out value="${item.width} cm"/>
-                                    </td>
-                                    <td>
-                                        <c:out value="${item.shedLength} cm"/>
-                                    </td>
-                                    <td>
-                                        <c:out value="${item.shedWidth} cm"/>
-                                    </td>
-                                        <%--                                    <td>--%>
-                                        <%--                                        <button class="btn btn-primary" formaction="addtocart">Slet</button>--%>
-                                        <%--                                    </td>--%>
-                                </tr>
-                            </c:forEach>
-                        </table>
-<%--                        <input class="btn btn-primary" type="submit" name="addtocart" value="Tilføj til Kurv"/>--%>
-                        <button class="btn btn-primary" name="addtocart">Tilføj til Kurv
+                        </c:forEach>
+                    </table>
+                    <form action="svg" method="post">
+                        <button class="btn btn-primary" formaction="svg" formmethod="post" name="draw">Tegn Carport
                                 <%--                            <c:if test="${sessionScope.cart == null}">--%>
                                 <%--                                ${sessionScope.cart.updateCart}--%>
                                 <%--                            </c:if>--%>

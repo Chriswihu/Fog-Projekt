@@ -26,14 +26,15 @@ public class SVGServlet extends HttpServlet {
         Locale.setDefault(new Locale("US"));
         HttpSession session = request.getSession();
         Cart cart = (Cart) session.getAttribute("cart");
+        Carport cartCarport = cart.getCarport();
 
         //NOTER!!!
         //CPwidth = længden af Carporten, går --> som X
         //CPheight = bredden af Carporten, går v-v som Y
-        int CPwidth = Integer.parseInt(request.getParameter("CPwidth"));
-        int CPheight = Integer.parseInt(request.getParameter("CPheight"));
-        int SHwidth = Integer.parseInt(request.getParameter("SHwidth"));
-        int SHheight = Integer.parseInt(request.getParameter("SHheight"));
+        int CPwidth = cartCarport.getLength();
+        int CPheight = cartCarport.getWidth();
+        int SHwidth = cartCarport.getShedLength();
+        int SHheight = cartCarport.getShedWidth();
         String frameviewbox = "0 0 " + (CPwidth+120) + " " + (CPheight+120);
         String innerviewbox = "0 0 " + (CPwidth+10) + " " + (CPheight+10);
 
@@ -47,9 +48,9 @@ public class SVGServlet extends HttpServlet {
             CarportSVG.addInnerSVG(frame, carport, (CPwidth), (CPheight));
 
 
-            Carport carportOrder = new Carport(CPwidth, CPheight, SHwidth, SHheight);
-            cart.add(carportOrder);
-            session.setAttribute("cart", cart);
+//            Carport carportOrder = new Carport(CPwidth, CPheight, SHwidth, SHheight);
+//            cart.add(carportOrder);
+//            session.setAttribute("cart", cart);
 
             request.setAttribute("svg", frame.toString());
             request.getRequestDispatcher("ordre.jsp").forward(request, response);
