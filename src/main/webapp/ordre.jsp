@@ -17,7 +17,6 @@
         <div class='parent flex-parent'>
             <div class='child flex-child style="width: 25%'>
                 <form action="addtocart" method="post">
-
                     <h2>Vælg din Carport's Mål</h2>
                     <label>Vælg en Carport Længde:
                         <br/>

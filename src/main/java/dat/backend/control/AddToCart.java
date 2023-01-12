@@ -38,6 +38,10 @@ public class AddToCart extends HttpServlet {
         HttpSession session = request.getSession();
         Cart cart = (Cart) session.getAttribute("cart");
 
+        //CPwidth = længden af Carporten
+        //CPheight = bredden af Carporten
+        //SHwidth = længden af Skur
+        //SHheight = bredden af Skur
         int CPlength = Integer.parseInt(request.getParameter("CPwidth"));
         int CPwidth = Integer.parseInt(request.getParameter("CPheight"));
         int SHlength = Integer.parseInt(request.getParameter("SHwidth"));
@@ -48,7 +52,7 @@ public class AddToCart extends HttpServlet {
 //        session.setAttribute("cart", null);
         try {
 
-            if(CPlength != 0 && CPwidth != 0 && SHlength != 0 && SHwidth != 0)
+            if(CPlength != 0 && CPwidth != 0)
             {
                 Carport carport = new Carport(CPlength, CPwidth, SHlength, SHwidth);
                 cart.add(carport);

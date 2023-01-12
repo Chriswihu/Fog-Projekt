@@ -24,8 +24,10 @@ public class SVG {
             "</defs>";
     private final static String ARROWTEMP = "<line x1=\"%d\" y1=\"%d\" x2=\"%d\" y2=\"%d\"\n" +
             "          style=\"stroke: #006600;marker-start: url(#beginArrow);marker-end: url(#endArrow);\"/>";
-
+    private final static String TEXTTEMPA = "<text style=\"text-anchor: middle\" fill=\"black\" transform=\"translate(30,%d) rotate(90)\">%d cm</text>";
+    private final static String TEXTTEMPB = "<text style=\"text-anchor: middle\" fill=\"black\" transform=\"translate(%d,%d)\">%d cm</text>";
     private final static String CROSSTEMP = "<line x1=\"%f\" y1=\"%f\" x2=\"%f\" y2=\"%f\" style=\"stroke:#000000; stroke-dasharray: 5 5;\"/>>";
+
 
     public final static String VIEWBOX = "%s %s %s %s";
 
@@ -69,6 +71,9 @@ public class SVG {
         svgString.append(String.format(ARROWHEADTEMP));
         svgString.append(String.format(ARROWTEMP, 50, 25, 50, heigth+25));
         svgString.append(String.format(ARROWTEMP, 75, (heigth+50), width+75, (heigth+50)));
+        svgString.append(String.format(TEXTTEMPA, heigth/2, heigth));
+        svgString.append(String.format(TEXTTEMPB, (width+80)/2, heigth+70, width));
+
 //        svgString.append("<g><svg>");
 //        svgString.append(new SVG(0, 0, width, heigth, viewBox(0, 0, width, heigth)));
 
