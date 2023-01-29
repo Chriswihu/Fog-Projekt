@@ -55,6 +55,7 @@ public class Login extends HttpServlet
             Materials materials = new Materials();
             session.setAttribute("cart", cart);
             session.setAttribute("materials", materials);
+
             LengthList lengthList = CarportFacade.getLengths(connectionPool);
             session.setAttribute("lengthList", lengthList);
 

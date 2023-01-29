@@ -38,9 +38,10 @@ public class Cart
     {
         carportList.clear();
     }
-    public void updateCart(Carport carport)
-    {
-        carportList.clear();
-        carportList.add(carport);
-    }
+
+//    public void updateCart(Carport carport)
+//    {
+//        carportList.clear();
+//        carportList.add(carport);
+//    }
 }

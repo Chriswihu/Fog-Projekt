@@ -27,7 +27,6 @@ public class Confirm extends HttpServlet {
         Materials materials = (Materials) session.getAttribute("materials");
         materials.addMaterials(cart.getCarport());
 
-        session.setAttribute("orderId", orderId);
         session.setAttribute("materials", materials);
 
         try
